@@ -1,0 +1,143 @@
+{# templates/blog/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Test Application
+{% endblock %}
+{% block stylesheets %}
+    <style>
+        div.ex3 {
+            background-color: lightblue;
+            width: 900px;
+            height: 600px;
+            overflow: auto;
+        }
+    </style>
+{% endblock %}
+
+
+
+
+
+{% block body %}
+
+
+
+
+
+    <h1>Quiz on Important Facts</h1>
+    {% for ques in questionGroup.questions %}
+        <div class="quiz-container">
+            <div id="quiz">
+                {% set answerCounter =1 %}
+                <legend>{{ ques.id }} {{ ques.title }}?</legend>
+
+                <question id="q{{ ques.id }}" data-answers="{{ ques.answers|length }}"></question>
+                {% for answer in ques.answers %}
+
+                    <answer  id="a{{ ques.id }}{{ answerCounter }}" data-correct="{{ answer.isCorrect }}"></answer>
+                    <p id="a{{ ques.id }}{{ answer.id }}text">  <input type="checkbox"  id="{{ ques.id }}{{ answer.id }}" value="{{ answer.isCorrect }}">{{ answer.title }}  ,{{ answer.isCorrect }}</p>
+
+                    {% set answerCounter = 1+answerCounter %}
+                {% endfor %}
+                <br>
+
+                <button type="button" onclick="changeHeadingBg({{ ques.id }});">Yellow</button>
+            </div>
+        </div>
+    {% endfor %}
+
+    <button id="previous">Previous Question</button>
+    <button id="next">Next Question</button>
+    <button id="submit">Submit Quiz</button>
+    <div id="results"></div>
+
+
+
+
+
+
+
+
+    {% block javascripts %}
+
+
+
+
+        <script>
+
+            // Variables
+            const quizContainer = document.getElementById('quiz');
+            const resultsContainer = document.getElementById('results');
+            const submitButton = document.getElementById('submit');
+
+
+            // Function to change heading background color
+            function changeHeadingBg(questionId){
+                var correctAnswerColor= 'Green';
+                var wrongAnswerColor= 'Red';
+
+                //get questionId
+                var ques = document.querySelector('#q'.concat(questionId));
+                for(var i=1; i<= ques.dataset.answers; i++){
+                    var answerId= 'a'.concat(questionId).concat(i);
+                    var answer= document.querySelector('#'.concat(answerId));
+                    alert(answer.value);
+                    if (answer.dataset.correct === '1'){
+                        document.getElementById(answerId.concat('text')).style.color=correctAnswerColor;
+                    }else{
+                        document.getElementById(answerId.concat('text')).style.color=wrongAnswerColor;
+                    }
+                }
+
+            }
+
+
+            submitButton.addEventListener('click', showResults);
+            previousButton.addEventListener("click", showPreviousSlide);
+            nextButton.addEventListener("click", showNextSlide);
+
+        </script>
+
+
+
+
+
+
+
+        <script>
+
+            function showHint(str) {
+                var xhttp;
+                if (str.length == 0) {
+                    document.getElementById("txtHint").innerHTML = "";
+                    return;
+                }
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("txtHint").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET","/gethint/"+str, true);
+                xhttp.send();
+            }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% endblock %}
+
+
+
+{% endblock %}

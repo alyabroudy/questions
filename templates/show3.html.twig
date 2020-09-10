@@ -1,0 +1,107 @@
+{# templates/blog/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Test Application
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+<h1>The XMLHttpRequest Object</h1>
+
+<h3>Start typing a name in the input field below:</h3>
+
+
+
+<h3>Start plying:</h3>
+<ul>
+    {% for qg in questionGroups %}
+        <li><a href="{{ path('show_question_group', {'id': qg.id } ) }}">{{ qg.name}}</a> ({{ qg.questions|length }} ques)</li>
+        <p>{{ qg.description }}</p>
+    {% endfor %}
+</ul>
+
+
+
+
+
+{% block body %}
+
+
+
+    <h1>Quiz on Important Facts</h1>
+    <div id="quiz" style="float: contour; width: 40%; padding-left: 20%; padding-top: 10%">
+{% if ques %}
+
+                {% set answerCounter =1 %}
+                <fieldset id="{{ ques.id }}fieldset" data-question-id="{{ ques.id }}">
+                <legend>{{ ques.id }}# {{ ques.title }}?</legend>
+                <input type="hidden" id="answersCount" value="{{ ques.answers|length }}">
+
+                {% for answer in ques.answers %}
+
+                    <p id="a{{ answerCounter }}text" > &#129409;
+                        <input type="checkbox" id="a{{ answerCounter }}" data-real-answer="{{ answer.isCorrect }}">{{ answer.title }}  <span id="a{{ answerCounter }}icon"></span>
+                    </p>
+
+                    {% set answerCounter = 1+answerCounter %}
+                {% endfor %}
+                <br>
+
+                    <button id="submit" onclick="myFunction()">Submit</button>
+                </fieldset>
+
+
+
+<form action="{{ path('question_show', {'id': (ques.id +1)}) }}">
+    <input id="next" type="submit" style="float: right" value="Next Question">
+</form>
+<form action="{{ path('question_show', {'id': (ques.id -1)}) }}">
+    <input id="previous" type="submit" value="Previous Question">
+</form>
+{% endif %}
+    </div>
+    <form action="{{ path('home_page') }}">
+        <input id="previous" type="submit" value="Home Page">
+    </form>
+
+    {% block javascripts %}
+        <script>
+            function myFunction() {
+                var answersCount = document.getElementById('answersCount').value;
+
+                for (var i=1; i <= answersCount; i++){
+                    var answerBox =document.getElementById('a'.concat(i.toString()));
+                    var answerBoxName ='a'.concat(i.toString());
+                    var userAnswer = answerBox.checked;
+                    var realAnswer = answerBox.dataset.realAnswer;
+                    validateAnswer(answerBoxName, userAnswer, realAnswer);
+                }
+            }
+
+            function validateAnswer(answerBoxName, userAnswer, realAnswer)
+            {
+                var correct = "\&#9989;";
+                var wrong = "\&#10060;";
+                var answerBoxText =document.getElementById(answerBoxName.concat('text'));
+                var answerBoxIcon =document.getElementById(answerBoxName.concat('icon'));
+
+                if ( (!userAnswer && realAnswer === "" || (userAnswer && realAnswer === "1")))
+                {
+                        answerBoxText.style.backgroundColor='lightgreen';
+                        answerBoxIcon.innerHTML = correct;
+                }else{
+                        answerBoxText.style.backgroundColor='red';
+                        answerBoxIcon.innerHTML = wrong;
+                }
+            }
+
+
+        </script>
+
+    {% endblock %}
+
+
+
+{% endblock %}

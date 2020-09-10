@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}New Post{% endblock %}
+
+
+{% block Navigationbar %}
+
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('home_page') }}">Home</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('questions_page') }}">Quiz</a></li>
+    <li class="quiz-Navigation-bar-li"><a class="quiz-a-active" href="{{ path('blog_page') }}"> Blog</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('shop_page') }}"> Shop</a></li>
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="grid-container">
+        <div class="header-grid">Header</div>
+        <div class="menu-grid">
+            <span style="padding-bottom: 30px">
+                Menu
+            </span>
+            <div>
+                    <a class="post-menu-bar" href="{{ path('post_new')}}">Create Post</a>
+            </div>
+        </div>
+
+
+        <div class="main-grid">
+
+                <div class="grid-post-item">
+                    <h1>Create new Post</h1>
+
+                    {{ include('blog/post/_form.html.twig') }}
+                </div>
+
+
+        </div>
+
+        <div class="right-grid">Right</div>
+        <div class="footer-grid">Footer</div>
+    </div>
+
+
+
+    </body>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quiz App!{% endblock %}
+
+{% block Navigationbar %}
+
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('home_page') }}">Home</a></li>
+    <li class="quiz-Navigation-bar-li"><a class="quiz-a-active" href="{{ path('questions_page') }}">Quiz</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('blog_page') }}"> Blog</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('shop_page') }}"> Shop</a></li>
+{% endblock %}
+
+{% block body %}
+<div class="quiz-groups-wrapper">
+    {{ form(form) }}
+</div>
+{% endblock %}

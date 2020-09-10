@@ -1,0 +1,24 @@
+Scenario:
+  #Scenario
+  fach:        "ITK"
+  description: "Abschluss Prufueng"
+  title:       "Der Vertriebsmitarbeiter Peterson hat den Manager und zwei Mitglieder des Ensembles
+               „Plattfuß“ zu einem ersten Beratungsgespräch zur Creative-Ad GmbH eingeladen. Da
+               Herr Peterson nicht in der Lage ist alle technischen Fragestellungen zu beantworten,
+               werden Sie im Verlauf des Gespräches hinzugezogen."
+  image:       null
+  totalPoints: 20
+  #Questions
+  questions:
+    title:     "Nennen Sie vier Aspekte, warum das Ensemble „Plattfuss seine Außendarstellung durch Internetpräsenz ergänzen sollte!"
+    ponts:      4
+    #Answers
+    answers:
+      title: "a) Internetpräsenz
+               Zielgruppengerechtes Informationsangebot
+               Globale Reichweite
+               Hohe Aktualität und schnelle Reaktionszeiten bei Änderungen
+               Erfüllung zeitgemäßer Anforderungen
+               Aufbau von Kommunikation mit den Fans (z. B. Gästebuch, Mailangebot, ...)
+               Vertrieb von Merchandising-Produkten"
+      isCorrect: true

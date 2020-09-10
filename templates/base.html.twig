@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="En">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Test Application{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+        {% block stylesheets %}
+                <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+        {% endblock %}
+        <ul class="quiz-Navigation-bar-ul">
+            {% block Navigationbar %}
+
+                <li class="quiz-Navigation-bar-li"><a class="quiz-a-active" href="{{ path('home_page') }}">Home</a></li>
+                <li class="quiz-Navigation-bar-li"><a href="{{ path('questions_page') }}">Quiz</a></li>
+                <li class="quiz-Navigation-bar-li"><a href="{{ path('blog_page') }}"> Blog</a></li>
+                <li class="quiz-Navigation-bar-li"><a href="{{ path('shop_page') }}"> Shop</a></li>
+            {% endblock %}
+        </ul>
+    </head>
+    <body>
+        {% block body %}
+
+        {% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

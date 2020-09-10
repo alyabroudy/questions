@@ -1,0 +1,95 @@
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+
+/* Homepage */
+/* Homepage Navigation-bar */
+.quiz-Navigation-bar-ul{list-style-type: none;margin: 0;padding: 0;overflow: hidden;background-color: #333;}
+.quiz-Navigation-bar-li{float: left;border-right:1px solid #bbb;}
+.quiz-Navigation-bar-li:last-child {border-right: none;}
+.quiz-Navigation-bar-li a {display: block;color: white;text-align: center;padding: 14px 16px;text-decoration: none;}
+.quiz-Navigation-bar-li a:hover:not(.active) {background-color: #3ecc1a;}
+.quiz-a-active{background-color: #3ecc1a;}
+
+
+
+/* Questions page */
+.quiz-groups-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; background-color: white}
+.quiz-groups-li { background-color: #111;}
+.quiz-groups-li a:hover:not(.active) {background-color: #3ecc1a;}
+.quiz-groups-li a{ display: block;color: white;text-align: center;padding: 5px 16px;text-decoration: none;}
+.quiz-btn-previous{ float: left;}
+.quiz-btn-next{ float: right;}
+.ques-checkbox{
+    display: block;color: black;text-align: center;padding: 2px 10px;text-decoration: none;
+    font-size: 18px;
+}
+.ques-checkbox:hover:not(.active) {background-color: #3ecc1a;}
+
+/* checkbox*/
+
+/* end of checkbox*/
+
+
+
+/* Blog Page */
+.post-title{font-size: 16px}
+.post-description{padding: 15px;text-align: center;font-size: 16px}
+.post-div{max-width: 50%;}
+
+.header-grid { grid-area: header; }
+.menu-grid { grid-area: menu; min-width: 25%;}
+.main-grid { grid-area: main; min-width: 50%;}
+.right-grid { grid-area: right; min-width: 25%;}
+.footer-grid { grid-area: footer; }
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+            'header header header header header header'
+            'menu main main main right right'
+            'menu footer footer footer footer footer';
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+}
+
+.grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
+.grid-post-item {
+    display: grid;
+    grid-gap: 20px;
+    padding: 20px;
+    background-color: #7de8f3;
+    text-align: center;
+    align-content: center;
+    border: 5px solid #fff;
+}
+.post-image:hover {
+     border: 2px solid #771223;
+ }
+.post-image img {
+    width: 100%;
+    height: 250px;
+}
+.post-image-desc {
+    padding: 15px;
+    text-align: center;
+}
+.post-menu-bar{
+    display: block;color: black;text-align: center;padding: 2px 10px;text-decoration: none;
+    font-size: 18px;
+}
+.post-menu-bar:hover:not(.active) {background-color: #3ecc1a;}
+.post-action-link{
+    border: 1px solid #fff;
+    display: block;color: black;text-align: center;padding: 2px 10px;text-decoration: none;
+}
+.post-action-link:hover:not(.active) {background-color: #3ecc1a;}
+
+.product-item:hover {
+    border: 4px solid #771223;
+}

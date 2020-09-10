@@ -1,0 +1,112 @@
+{% extends '@twig/base.html.twig' %}
+
+{% block title %}Quiz App!{% endblock %}
+
+{% block Navigationbar %}
+
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('home_page') }}">Home</a></li>
+    <li class="quiz-Navigation-bar-li"><a class="quiz-a-active" href="{{ path('questions_page') }}">Quiz</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('blog_page') }}"> Blog</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('shop_page') }}"> Shop</a></li>
+{% endblock %}
+
+{% block body %}
+    <div class="grid-container">
+        <div class="header-grid">Header</div>
+        <div class="menu-grid">
+            <span style="padding-bottom: 30px">
+                Menu
+            </span>
+            <div>
+
+            </div>
+        </div>
+
+
+        <div class="main-grid">
+            <h3>Hello Question Groups: ✅</h3>
+
+            {% set ques = currentQues %}
+            {% set answerCounter =1 %}
+            <fieldset id="{{ ques.id }}fieldset" data-question-id="{{ ques.id }}">
+                <legend>{{ ques.id }}# {{ ques.title }}?</legend>
+                <input type="hidden" id="answersCount" value="{{ ques.answers|length }}">
+                {% for answer in ques.answers %}
+                    <div >
+                    <p id="a{{ answerCounter }}text" style="float: left">
+                        <input type="checkbox" class="ques-checkbox" id="a{{ answerCounter }}" data-real-answer="{{ answer.isCorrect }}">
+                        <label for="a{{ answerCounter }}">
+                            {{ answer.title }}  <span id="a{{ answerCounter }}icon"></span>
+                        </label>
+                    </p>
+                    </div>
+
+                    {% set answerCounter = 1+answerCounter %}
+                {% endfor %}
+                <br>
+
+            </fieldset>
+
+            <form action="{{ path('questions_show', {'id': ques.next.id|default(ques.id) }) }}">
+                <input class="quiz-btn-next" id="next" type="submit" value="Next Question">
+            </form>
+            <form action="{{ path('questions_show', {'id': ques.previos.id|default(ques.id) }) }}">
+                <input class="quiz-btn-previous" type="submit" value="Previous Question">
+            </form>
+            <button id="submit" style="float:  left" onclick="myFunction()">Submit Quiz</button>
+
+            <p id="results"></p>
+
+        </div>
+
+        <div class="right-grid">Right</div>
+        <div class="footer-grid">Footer</div>
+    </div>
+
+
+    {% block javascripts %}
+        <script>
+            function myFunction() {
+                var answersCount = document.getElementById('answersCount').value;
+                var results = document.getElementById('results');
+                var resultsValue = document.getElementById('results');
+
+                for (var i=1; i <= answersCount; i++){
+                    var answerBox =document.getElementById('a'.concat(i.toString()));
+                    var answerBoxName ='a'.concat(i.toString());
+                    var userAnswer = answerBox.checked;
+                    var realAnswer = answerBox.dataset.realAnswer;
+                     validateAnswer(answerBoxName, userAnswer, realAnswer);
+                }
+                var ff= parseInt(resultsValue.value);
+                results.innerText = ff +'d';
+            }
+
+            function validateAnswer(answerBoxName, userAnswer, realAnswer)
+            {
+                var correct = "\&#9989;";
+                var wrong = "\&#10060;";
+                var answerBoxText =document.getElementById(answerBoxName.concat('text'));
+                var answerBoxIcon =document.getElementById(answerBoxName.concat('icon'));
+
+                if ( (!userAnswer && realAnswer === "" || (userAnswer && realAnswer === "1")))
+                {
+                    answerBoxText.style.backgroundColor='lightgreen';
+                    answerBoxIcon.innerHTML = correct;
+                    return 1;
+                }else{
+                    answerBoxText.style.backgroundColor='red';
+                    answerBoxIcon.innerHTML = wrong;
+                    return 0;
+                }
+            }
+
+
+        </script>
+
+    {% endblock %}
+
+
+{% endblock %}
+
+

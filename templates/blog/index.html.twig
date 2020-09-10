@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Blog App!{% endblock %}
+
+
+{% block Navigationbar %}
+
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('home_page') }}">Home</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('questions_page') }}">Quiz</a></li>
+    <li class="quiz-Navigation-bar-li"><a class="quiz-a-active" href="{{ path('blog_page') }}"> Blog</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('shop_page') }}"> Shop</a></li>
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="grid-container">
+        <div class="header-grid">Header</div>
+        <div class="menu-grid">
+            <span style="padding-bottom: 30px">
+                Menu
+            </span>
+            <div>
+                    <a class="post-menu-bar" href="{{ path('post_new')}}">Create Post</a>
+            </div>
+        </div>
+
+
+        <div class="main-grid">
+            {% for post in posts %}
+                <div class="grid-post-item">
+                    <div class="post-image">
+                        <a href="{{ path('post_show', {'id': post.id}) }}">
+                        <img src="{{ post.image }}" alt="Nature">
+                        </a>
+                        <div>
+                            <p class="post-title"><b>{{ post.title }}</b></p>
+                            <p class="post-description">Title description,</p>
+                            <span style="float: left">
+                            <a class="post-action-link" href="{{ path('post_show', {'id': post.id}) }}"><p class="post-description">Show</p></a>
+                            </span>
+                            <span style="float: right">
+                            <a class="post-action-link" href="{{ path('post_edit', {'id': post.id}) }}"><p class="post-description">Edit</p></a>
+                            </span>
+                                <div class="w3-col m4 w3-hide-small">
+                                    <p class="post-description"><b>Created At:  </b> <span style="padding: 16px">{{ post.createdAt|date('F d, Y h:i', "Europe/Berlin") }}</span> <b>By:  </b> <span class="w3-tag">{{ post.owner.firstname|default('Guest')}}</span></p>
+                                    <p class="post-description"><b>updated At:  </b> <span style="padding: 16px">{{ post.updatedAt is empty ? "" : post.updatedAt|date('F d, Y h:i', "Europe/Berlin")}}</span><b>Comments  </b> <span class="w3-tag">{{ post.comments|default(0)|length }}</span></p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+
+        <div class="right-grid">Right</div>
+        <div class="footer-grid">Footer</div>
+    </div>
+
+
+
+    </body>
+
+{% endblock %}
