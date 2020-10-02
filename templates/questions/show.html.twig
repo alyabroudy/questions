@@ -28,21 +28,25 @@
 
             {% set ques = currentQues %}
             {% set answerCounter =1 %}
+
+
             <fieldset id="{{ ques.id }}fieldset" data-question-id="{{ ques.id }}">
                 <legend>{{ ques.id }}# {{ ques.title }}?</legend>
                 <input type="hidden" id="answersCount" value="{{ ques.answers|length }}">
+                <div class="quiz-answer">
                 {% for answer in ques.answers %}
-                    <div >
-                    <p id="a{{ answerCounter }}text" style="float: left">
+
+                    <p id="a{{ answerCounter }}text">
                         <input type="checkbox" class="ques-checkbox" id="a{{ answerCounter }}" data-real-answer="{{ answer.isCorrect }}">
                         <label for="a{{ answerCounter }}">
                             {{ answer.title }}  <span id="a{{ answerCounter }}icon"></span>
                         </label>
                     </p>
-                    </div>
+                    <br>
 
                     {% set answerCounter = 1+answerCounter %}
                 {% endfor %}
+                </div>
                 <br>
 
             </fieldset>

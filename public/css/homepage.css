@@ -18,11 +18,14 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 .quiz-groups-li a{ display: block;color: white;text-align: center;padding: 5px 16px;text-decoration: none;}
 .quiz-btn-previous{ float: left;}
 .quiz-btn-next{ float: right;}
-.ques-checkbox{
-    display: block;color: black;text-align: center;padding: 2px 10px;text-decoration: none;
-    font-size: 18px;
-}
+
 .ques-checkbox:hover:not(.active) {background-color: #3ecc1a;}
+
+.quiz-answer{
+    font-size: 18px;
+    float: left;
+    text-align: left;
+}
 
 /* checkbox*/
 
