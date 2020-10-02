@@ -69,6 +69,7 @@ class ShopController extends AbstractController
         //$this->getDoctrine()->getManager()->refresh($pProduct->getProduct());
         /** @var User $user */
         $user = $this->getUser();
+        /** @var ShoppingCard $card */
         $card= $user->getShoppingCard();
         $itemsOnUserCard= $card->getItems();
 
@@ -84,12 +85,13 @@ class ShopController extends AbstractController
            }
            //dump($itemsOnUserCard, $card, null == $card, null == $itemsOnUserCard);
         if (null === $existingOrder){
-            $order = new Order($pProduct->getProduct(), 1);
-            $card->addItem($order);
-            $this->entityManager->persist($order);
+            $existingOrder = new Order($pProduct->getProduct(), 1);
+            $card->addItem($existingOrder);
+            $this->entityManager->persist($existingOrder);
         }else{
             $existingOrder->setQuantity($existingOrder->getQuantity() +1);
         }
+        $card->setSum($card->getSum() + $existingOrder->getProduct()->getPrice());
         // dump($existingOrder, $itemsOnUserCard ,$pProduct->getProduct());
         $pProduct->setQuantity($pProduct->getQuantity() -1);
         $this->getDoctrine()->getManager()->flush();

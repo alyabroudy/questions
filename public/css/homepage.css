@@ -93,3 +93,37 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 .product-item:hover {
     border: 4px solid #771223;
 }
+
+
+/* Shop Page */
+.card-items-table{
+    font-family: arial, sans-serif;
+    font-size: 16px;
+    text-align: left;
+    border-collapse: collapse;
+    border: 3px solid #0a0a0a;
+    padding: 20px;
+    width: 100%;
+}
+.card-items-table-h {
+    border: 3px solid #0a0a0a;
+    text-align: left;
+}
+.card-items-table-d {
+    border: 1px solid #dddddd;
+    text-align: left;
+}
+
+.card-items-table-r {
+    border: 3px solid #090808;
+    text-align: left;
+}
+
+.card-items-image{
+    width: 35%;
+    float: right;
+    padding: 20px;
+}
+.card-items-image:hover {
+    border: 4px solid #771223;
+}

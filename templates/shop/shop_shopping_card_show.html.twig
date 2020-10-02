@@ -32,26 +32,35 @@
 
         <div class="main-grid">
                 <!-- Blog entries -->
-                <div class="grid-post-item">
+
                     <!-- Blog entry -->
-                    {% for o in card.items %}
-                        <div class="product-item">
-                            <a href="{{ path('product_show', {'id': o.product.id}) }}">
-                                <img class="product-item" src="{{ asset('uploads/product/') }}{{ o.product.image }}" alt="Nature">
-                            </a>
-                            <p class="post-title"><b>{{ o.product.name }}</b>
-                                <b style="float: right">{{ o.product.price|number_format(2) }}$</b>
-                            </p>
-                            <form method="post" action="{{ path('add_item_to_card', {'id': o.id}) }}">
-                                <input type="submit" value="Add To Card">
-                                <p class="post-description">Quantity: {{ o.quantity }}</p>
-                            </form>
-                            <p class="post-description">{{ o.product.description }}</p>
-                        </div>
-                    {% endfor %}
+                    <table class="card-items-table">
+                        <tr>
+                            <th class="card-items-table-h">ID</th>
+                            <th style="width: 50%">Title</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th style="text-align: center">Image</th>
+                        </tr>
+                        {% for o in card.items %}
+                            <tr class="card-items-table-r">
+                                <td>{{ o.id }}</td>
+                                <td>{{ o.product.name }}</td>
+                                <td style="padding-left: 20px">{{ o.quantity }}</td>
+                                <td>{{ o.product.price }}</td>
+                                <td>
+                                    <a href="{{ path('product_show', {'id': o.product.id}) }}">
+                                        <img class="card-items-image" src="{{ asset('uploads/product/') }}{{ o.product.image }}" alt="Nature">
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+                    </table>
+                    <span style="float: right; padding-right: 50px">Sum: {{ card.sum }}</span>
 
                     <!-- END BLOG ENTRIES -->
-                </div>
+
         </div>
 
         <div class="right-grid">Right</div>

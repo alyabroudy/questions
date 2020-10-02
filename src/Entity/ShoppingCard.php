@@ -35,6 +35,7 @@ class ShoppingCard
     public function __construct()
     {
         $this->items = new ArrayCollection();
+        $this->sum = 0;
     }
 
 
