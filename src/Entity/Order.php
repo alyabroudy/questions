@@ -35,6 +35,29 @@ class Order
      */
     private $orderDate;
 
+    /**
+     * @ORM\Column(type="smallint", nullable=true)
+     */
+    private $state;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=ShoppingCard::class, inversedBy="items")
+     */
+    private $shoppingCard;
+
+    /**
+     * Order constructor.
+     * @param $product
+     *
+     */
+    public function __construct($product,  $quantity)
+    {
+        $this->product = $product;
+        $this->quantity = $quantity;
+
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -75,4 +98,30 @@ class Order
 
         return $this;
     }
+
+    public function getState(): ?int
+    {
+        return $this->state;
+    }
+
+    public function setState(?int $state): self
+    {
+        $this->state = $state;
+
+        return $this;
+    }
+
+    public function getShoppingCard(): ?ShoppingCard
+    {
+        return $this->shoppingCard;
+    }
+
+    public function setShoppingCard(?ShoppingCard $shoppingCard): self
+    {
+        $this->shoppingCard = $shoppingCard;
+
+        return $this;
+    }
+
+
 }

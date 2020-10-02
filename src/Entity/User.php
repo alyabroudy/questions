@@ -42,11 +42,37 @@ class User implements UserInterface
      */
     private $shoppingCard;
 
+    /**
+     * @ORM\Column(type="smallint", nullable=true)
+     */
+    private $gender;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $givenname;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $surname;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $birthdate;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Address::class, mappedBy="user")
+     */
+    private $addresses;
+
     public function __construct()
     {
         $this->participants = new ArrayCollection();
         $this->messages = new ArrayCollection();
         $this->shoppingCard= new ShoppingCard();
+        $this->addresses = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -135,6 +161,85 @@ class User implements UserInterface
     public function setShoppingCard(?ShoppingCard $shoppingCard): self
     {
         $this->shoppingCard = $shoppingCard;
+
+        return $this;
+    }
+
+    public function getGender(): ?int
+    {
+        return $this->gender;
+    }
+
+    public function setGender(?int $gender): self
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function getGivenname(): ?string
+    {
+        return $this->givenname;
+    }
+
+    public function setGivenname(?string $givenname): self
+    {
+        $this->givenname = $givenname;
+
+        return $this;
+    }
+
+    public function getSurname(): ?string
+    {
+        return $this->surname;
+    }
+
+    public function setSurname(?string $surname): self
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    public function getBirthdate(): ?\DateTimeInterface
+    {
+        return $this->birthdate;
+    }
+
+    public function setBirthdate(?\DateTimeInterface $birthdate): self
+    {
+        $this->birthdate = $birthdate;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Address[]
+     */
+    public function getAddresses(): Collection
+    {
+        return $this->addresses;
+    }
+
+    public function addAddress(Address $address): self
+    {
+        if (!$this->addresses->contains($address)) {
+            $this->addresses[] = $address;
+            $address->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAddress(Address $address): self
+    {
+        if ($this->addresses->contains($address)) {
+            $this->addresses->removeElement($address);
+            // set the owning side to null (unless already changed)
+            if ($address->getUser() === $this) {
+                $address->setUser(null);
+            }
+        }
 
         return $this;
     }

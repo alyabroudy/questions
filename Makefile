@@ -20,6 +20,12 @@ migration:
 	$(SYMFONY_CMD) make:migration
 	$(SYMFONY_CMD) do:mi:mi --allow-no-migration -n -vv
 
+res:
+	$(SYMFONY_CMD) doc:database:drop --force --if-exists -vv && \
+	$(SYMFONY_CMD) doc:database:create -vv && \
+	$(SYMFONY_CMD) do:mi:mi --allow-no-migration -n -vv
+	$(SYMFONY_CMD) do:fixtures:load -vv -n
+
 serve:
 	$(SYMFONY2_CMD) serve --no-tls
 

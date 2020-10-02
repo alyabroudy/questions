@@ -1,4 +1,4 @@
-{# templates/blog/index.html.twig #}
+{# templates/blog/shop_homepage.html.twig #}
 {% extends 'base.html.twig' %}
 
 {% block title %}Shop App!{% endblock %}
@@ -16,7 +16,7 @@
     <div class="grid-container">
         <div class="header-grid">Header
             <span style="float: right">
-                <a class="post-action-link" href="#"><p class="post-description">Card({{ app.user.shoppingCard.items|length }})</p></a>
+                <a class="post-action-link" href="{{ path('shopping_card_show', {id: app.user.shoppingCard.id }) }}"><p class="post-description">Card({{ app.user.shoppingCard.items|length }})</p></a>
             </span>
         </div>
 

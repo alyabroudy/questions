@@ -44,6 +44,11 @@ class Address
      */
     private $isMain;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="addresses")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +110,18 @@ class Address
     public function setIsMain(?bool $isMain): self
     {
         $this->isMain = $isMain;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

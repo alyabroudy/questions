@@ -25,11 +25,6 @@ class Product
     private $name;
 
     /**
-     * @ORM\Column(type="smallint", nullable=true)
-     */
-    private $quantity;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $description;
@@ -44,11 +39,15 @@ class Product
      */
     private $image;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Category;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Store::class, inversedBy="product")
+     * @ORM\Column(type="datetime", nullable=true)
      */
-    private $store;
+    private $createdAt;
 
     public function getId(): ?int
     {
@@ -63,18 +62,6 @@ class Product
     public function setName(?string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getQuantity(): ?int
-    {
-        return $this->quantity;
-    }
-
-    public function setQuantity(?int $quantity): self
-    {
-        $this->quantity = $quantity;
 
         return $this;
     }
@@ -115,16 +102,26 @@ class Product
         return $this;
     }
 
-
-
-    public function getStore(): ?Store
+    public function getCategory(): ?string
     {
-        return $this->store;
+        return $this->Category;
     }
 
-    public function setStore(?Store $store): self
+    public function setCategory(?string $Category): self
     {
-        $this->store = $store;
+        $this->Category = $Category;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(?\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
 
         return $this;
     }

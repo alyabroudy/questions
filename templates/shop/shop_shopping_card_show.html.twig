@@ -34,19 +34,19 @@
                 <!-- Blog entries -->
                 <div class="grid-post-item">
                     <!-- Blog entry -->
-                    {% for pp in purchaseProducts %}
+                    {% for o in card.items %}
                         <div class="product-item">
-                                <a href="{{ path('product_show', {'id': pp.product.id}) }}">
-                                    <img class="product-item" src="{{ asset('uploads/product/') }}{{ pp.product.image }}" alt="Nature">
-                                </a>
-                                <p class="post-title"><b>{{ pp.product.name }}</b>
-                                    <b style="float: right">{{ pp.product.price|number_format(2) }}$</b>
-                                </p>
-                            <form method="post" action="{{ path('add_item_to_card', {'id': pp.id}) }}">
+                            <a href="{{ path('product_show', {'id': o.product.id}) }}">
+                                <img class="product-item" src="{{ asset('uploads/product/') }}{{ o.product.image }}" alt="Nature">
+                            </a>
+                            <p class="post-title"><b>{{ o.product.name }}</b>
+                                <b style="float: right">{{ o.product.price|number_format(2) }}$</b>
+                            </p>
+                            <form method="post" action="{{ path('add_item_to_card', {'id': o.id}) }}">
                                 <input type="submit" value="Add To Card">
-                                <p class="post-description">Quantity: {{ pp.quantity }}</p>
+                                <p class="post-description">Quantity: {{ o.quantity }}</p>
                             </form>
-                                <p class="post-description">{{ pp.product.description }}</p>
+                            <p class="post-description">{{ o.product.description }}</p>
                         </div>
                     {% endfor %}
 

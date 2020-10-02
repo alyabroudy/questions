@@ -21,8 +21,14 @@ class ShoppingCard
      */
     private $id;
 
+
     /**
-     * @ORM\OneToMany(targetEntity=PurchaseProduct::class, mappedBy="shoppingCard")
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $sum;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="shoppingCard")
      */
     private $items;
 
@@ -31,41 +37,54 @@ class ShoppingCard
         $this->items = new ArrayCollection();
     }
 
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
+
+    public function getSum(): ?float
+    {
+        return $this->sum;
+    }
+
+    public function setSum(?float $sum): self
+    {
+        $this->sum = $sum;
+
+        return $this;
+    }
+
     /**
-     * @return Collection|PurchaseProduct[]
+     * @return Collection|Order[]
      */
     public function getItems(): Collection
     {
         return $this->items;
     }
 
-    public function addItem(PurchaseProduct $item): self
+    public function addItem(Order $item): self
     {
-                $this->items[] = $item;
-                $item->setShoppingCard($this);
+        if (!$this->items->contains($item)) {
+            $this->items[] = $item;
+            $item->setShoppingCard($this);
+        }
+
         return $this;
     }
 
-    public function removeItem(PurchaseProduct $item): self
+    public function removeItem(Order $item): self
     {
-        $currentItem = $this->items->get($this->items->indexOf($item));
         if ($this->items->contains($item)) {
-            if ($currentItem->getQuantity() > 1){
-                $currentItem->setQuantity($currentItem->getQuantity() -1);
-            }else{
-                $this->items->removeElement($item);
-                // set the owning side to null (unless already changed)
-                if ($item->getShoppingCard() === $this) {
-                    $item->setShoppingCard(null);
-                }
+            $this->items->removeElement($item);
+            // set the owning side to null (unless already changed)
+            if ($item->getShoppingCard() === $this) {
+                $item->setShoppingCard(null);
             }
         }
-        $item->setQuantity($item->getQuantity() + 1);
+
         return $this;
     }
+
 }

@@ -29,11 +29,6 @@ class PurchaseProduct
      */
     private $quantity;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=ShoppingCard::class, inversedBy="items")
-     */
-    private $shoppingCard;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -63,15 +58,4 @@ class PurchaseProduct
         return $this;
     }
 
-    public function getShoppingCard(): ?ShoppingCard
-    {
-        return $this->shoppingCard;
-    }
-
-    public function setShoppingCard(?ShoppingCard $shoppingCard): self
-    {
-        $this->shoppingCard = $shoppingCard;
-
-        return $this;
-    }
 }
