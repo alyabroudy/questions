@@ -1,0 +1,64 @@
+{# templates/blog/shop_homepage.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Shop App!{% endblock %}
+
+{% block Navigationbar %}
+
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('home_page') }}">Home</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('questions_page') }}">Quiz</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('blog_page') }}"> Blog</a></li>
+    <li class="quiz-Navigation-bar-li"><a class="quiz-a-active" href="{{ path('shop_page') }}"> Shop</a></li>
+{% endblock %}
+
+{% block body %}
+
+    <div class="grid-container">
+        <div class="header-grid">Header
+            <span style="float: right">
+                <a class="post-action-link" href="#"><p class="post-description">Card({{ app.user.shoppingCard.items|length }})</p></a>
+            </span>
+        </div>
+
+        <div class="menu-grid">
+            <span style="padding-bottom: 30px">
+                Menu
+            </span>
+            <div>
+
+            </div>
+        </div>
+
+
+        <div class="main-grid">
+                <!-- Blog entries -->
+                <div class="grid-post-item">
+                    <!-- Blog entry -->
+                    {% for pp in purchaseProducts %}
+                        <div class="product-item">
+                                <a href="{{ path('product_show', {'id': pp.product.id}) }}">
+                                    <img class="product-item" src="{{ asset('uploads/product/') }}{{ pp.product.image }}" alt="Nature">
+                                </a>
+                                <p class="post-title"><b>{{ pp.product.name }}</b>
+                                    <b style="float: right">{{ pp.product.price|number_format(2) }}$</b>
+                                </p>
+                            <form method="post" action="{{ path('add_item_to_card', {'id': pp.id}) }}">
+                                <input type="submit" value="Add To Card">
+                                <p class="post-description">Quantity: {{ pp.quantity }}</p>
+                            </form>
+                                <p class="post-description">{{ pp.product.description }}</p>
+                        </div>
+                    {% endfor %}
+
+                    <!-- END BLOG ENTRIES -->
+                </div>
+        </div>
+
+        <div class="right-grid">Right</div>
+        <div class="footer-grid">Footer</div>
+    </div>
+
+
+
+
+{% endblock %}
