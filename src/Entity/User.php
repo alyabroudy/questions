@@ -6,7 +6,9 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\This;
 use Symfony\Component\Security\Core\User\UserInterface;
+use function Composer\Autoload\includeFile;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -67,12 +69,24 @@ class User implements UserInterface
      */
     private $addresses;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Link::class, mappedBy="user")
+     */
+    private $links;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Relation::class, mappedBy="user")
+     */
+    private $relations;
+
     public function __construct()
     {
         $this->participants = new ArrayCollection();
         $this->messages = new ArrayCollection();
         $this->shoppingCard= new ShoppingCard();
         $this->addresses = new ArrayCollection();
+        $this->links = new ArrayCollection();
+        $this->relations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -150,7 +164,7 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+         //$this->plainPassword = null;
     }
 
     public function getShoppingCard(): ?ShoppingCard
@@ -242,6 +256,79 @@ class User implements UserInterface
         }
 
         return $this;
+    }
+    
+
+    /**
+     * @return Collection|Link[]
+     */
+    public function getLinks(): Collection
+    {
+        return $this->links;
+    }
+
+    public function addLink(Link $link): self
+    {
+        if (!$this->links->contains($link)) {
+            $this->links[] = $link;
+            $link->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLink(Link $link): self
+    {
+        if ($this->links->contains($link)) {
+            $this->links->removeElement($link);
+            // set the owning side to null (unless already changed)
+            if ($link->getUser() === $this) {
+                $link->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Relation[]
+     */
+    public function getRelations(): Collection
+    {
+        return $this->relations;
+    }
+
+    public function addRelation(Relation $relation): self
+    {
+        if (!$this->relations->contains($relation)) {
+            $this->relations[] = $relation;
+            $relation->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRelation(Relation $relation): self
+    {
+        if ($this->relations->contains($relation)) {
+            $this->relations->removeElement($relation);
+            // set the owning side to null (unless already changed)
+            if ($relation->getUser() === $this) {
+                $relation->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getPublicLinks(){
+        $publicLinks = new ArrayCollection();
+        foreach ($this->getLinks() as $link){
+            if (!$link->isPrivate()){
+                $publicLinks->add($link);
+            }
+        }
+        return $publicLinks;
     }
 
 }

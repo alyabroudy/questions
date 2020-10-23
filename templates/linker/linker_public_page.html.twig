@@ -1,0 +1,37 @@
+{# templates/blog/shop_homepage.html.twig #}
+{% extends 'linker/linker_base.html.twig' %}
+
+{% block menu_public %}
+    <div class="linker-menu-item">
+        <a class="linker-menu-item-active" href="{{ path('public_page') }}">Public</a>
+    </div>
+{% endblock menu_public %}
+
+{% block main_grid %}
+    <div class="main-grid">
+        <!-- Blog entries -->
+        <div class="grid-friends">
+            friends
+            {% for r in relations %}
+                <p>{{ r.partner.username }}</p>
+            <table class="card-items-table">
+                <tr>
+                    <th class="card-items-table-h">ID</th>
+                    <th class="card-items-table-h">Name</th>
+                    <th class="card-items-table-h">Url</th>
+                    <th class="card-items-table-h">Rate</th>
+                </tr>
+
+                {% for l in r.partner.links %}
+                    <tr>
+                        <td>{{ l.id|default('') }}</td>
+                        <td>{{ l.name|default('') }}</td>
+                        <td><img class="card-items-image" src="{{ l.url }}" alt="Nature"></td>
+                        <td>{{ l.rate|default(0.0) }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock main_grid %}

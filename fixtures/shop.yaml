@@ -1,0 +1,11 @@
+App\Entity\Product:
+  product_{1..10}:
+    name: <sentence()>
+    description: <realText()>
+    image: "p<numberBetween(1, 4)>"
+    price: <randomFloat(3, 100, 350)>
+
+App\Entity\PurchaseProduct:
+  purchaseProduct_{1..10}:
+    product: "@product_<current()>"
+    quantity: 7

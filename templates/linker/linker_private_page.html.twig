@@ -1,0 +1,44 @@
+{# templates/blog/shop_homepage.html.twig #}
+{% extends 'linker/linker_base.html.twig' %}
+
+{% block menu_private %}
+    <div class="linker-menu-item">
+        <a class="linker-menu-item-active" href="{{ path('private_page') }}">private</a>
+    </div>
+{% endblock menu_private %}
+
+{% block main_grid %}
+    <div class="main-grid">
+        <!-- Blog entries -->
+        <div class="grid-friends">
+                <p>{{ app.user.username }}</p>
+            <table class="card-items-table">
+                <tr>
+                    <th class="card-items-table-h">ID</th>
+                    <th class="card-items-table-h">Name</th>
+                    <th class="card-items-table-h">Url</th>
+                    <th class="card-items-table-h">Rate</th>
+                </tr>
+
+                {% for l in links %}
+                    <tr>
+                        <td>{{ l.id|default('') }}</td>
+                        <td>{{ l.name|default('') }}</td>
+                        <td>
+                            <video width="320" height="240" src="{{ l.url }}" controls>
+                                Your browser does not support the video tag.
+                            </video>
+                            {{ l.url }}
+                        </td>
+                        <td>{{ l.rate|default(0.0) }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+
+            <video width="320" height="240" src="https://s207.akwam.download/download/1603287977/5f8eea2978940/Ratched.S01E08.720p.WEBRip.akwam.net.mp4" controls>
+                Your browser does not support the video tag.
+            </video>
+
+        </div>
+    </div>
+{% endblock main_grid %}

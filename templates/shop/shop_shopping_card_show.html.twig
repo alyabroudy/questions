@@ -16,7 +16,7 @@
     <div class="grid-container">
         <div class="header-grid">Header
             <span style="float: right">
-                <a class="post-action-link" href="#"><p class="post-description">Card({{ app.user.shoppingCard.items|length }})</p></a>
+                <a class="post-action-link" href="#"><p class="post-description">Card({{ app.user.shoppingCard.orders|length }})</p></a>
             </span>
         </div>
 
@@ -40,14 +40,20 @@
                             <th style="width: 50%">Title</th>
                             <th>Quantity</th>
                             <th>Price</th>
+                            <th></th>
                             <th style="text-align: center">Image</th>
                         </tr>
-                        {% for o in card.items %}
+                        {% for o in card.orders %}
                             <tr class="card-items-table-r">
                                 <td>{{ o.id }}</td>
                                 <td>{{ o.product.name }}</td>
                                 <td style="padding-left: 20px">{{ o.quantity }}</td>
                                 <td>{{ o.product.price }}</td>
+                                <td>
+                                    <form method="post" action="{{ path('remove_item_from_card', {'id': o.id}) }}">
+                                        <input type="submit" value="Remove">
+                                    </form>
+                                </td>
                                 <td>
                                     <a href="{{ path('product_show', {'id': o.product.id}) }}">
                                         <img class="card-items-image" src="{{ asset('uploads/product/') }}{{ o.product.image }}" alt="Nature">
@@ -60,7 +66,6 @@
                     <span style="float: right; padding-right: 50px">Sum: {{ card.sum }}</span>
 
                     <!-- END BLOG ENTRIES -->
-
         </div>
 
         <div class="right-grid">Right</div>
@@ -70,4 +75,21 @@
 
 
 
+{% endblock %}
+{% block javascripts %}
+    <script>
+    function loadDoc(id) {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("demo").innerHTML = this.responseText;
+    }
+    };
+    xhttp.open("POST", "/shop/ss/"+id, true);
+    xhttp.setRequestHeader("Content-type", "application/json");
+    //xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send();
+    }
+
+    </script>
 {% endblock %}

@@ -9,6 +9,7 @@
     <li class="quiz-Navigation-bar-li"><a href="{{ path('questions_page') }}">Quiz</a></li>
     <li class="quiz-Navigation-bar-li"><a href="{{ path('blog_page') }}"> Blog</a></li>
     <li class="quiz-Navigation-bar-li"><a class="quiz-a-active" href="{{ path('shop_page') }}"> Shop</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('linker_page') }}"> Linker</a></li>
 {% endblock %}
 
 {% block body %}
@@ -16,7 +17,7 @@
     <div class="grid-container">
         <div class="header-grid">Header
             <span style="float: right">
-                <a class="post-action-link" href="{{ path('shopping_card_show', {id: app.user.shoppingCard.id }) }}"><p class="post-description">Card({{ app.user.shoppingCard.items|length }})</p></a>
+                <a class="post-action-link" href="{{ path('shopping_card_show', {id: app.user.shoppingCard.id }) }}"><p class="post-description">Card(<span id="cardCount">{{ app.user.shoppingCard.orders|length }}</span>)</p></a>
             </span>
         </div>
 
@@ -35,18 +36,22 @@
                 <div class="grid-post-item">
                     <!-- Blog entry -->
                     {% for pp in purchaseProducts %}
-                        <div class="product-item">
+                        <div class="product-item" id="p{{ pp.product.id }}">
                                 <a href="{{ path('product_show', {'id': pp.product.id}) }}">
                                     <img class="product-item" src="{{ asset('uploads/product/') }}{{ pp.product.image }}" alt="Nature">
                                 </a>
                                 <p class="post-title"><b>{{ pp.product.name }}</b>
                                     <b style="float: right">{{ pp.product.price|number_format(2) }}$</b>
                                 </p>
-                            <form method="post" action="{{ path('add_item_to_card', {'id': pp.id}) }}">
-                                <input type="submit" value="Add To Card">
-                                <p class="post-description">Quantity: {{ pp.quantity }}</p>
-                            </form>
-                                <p class="post-description">{{ pp.product.description }}</p>
+                                {% if pp.quantity > 0 %}
+                                <button type="button" onclick="addItemToCard({{ pp.id }})">Add To Card</button>
+                                <p id="addItemMessage{{ pp.id }}" class="flash-success"></p>
+                                <p class="post-description">Quantity: <span id="itemQuantity{{ pp.id }}"> {{ pp.quantity }}</span></p>
+                                {% else %}
+                                <p class="flash-fail">Out of stock!!
+                                    {% endif %}
+
+                            <p class="post-description">{{ pp.product.description }}</p>
                         </div>
                     {% endfor %}
 
@@ -61,4 +66,31 @@
 
 
 
+{% endblock %}
+{% block javascripts %}
+    <script>
+        function addItemToCard(id) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var myObj = JSON.parse(this.responseText);
+                    console.log(myObj);
+                    document.getElementById("addItemMessage".concat(id)).innerHTML = "item added!!";
+                    document.getElementById("cardCount").innerHTML = myObj.cardCount;
+                    if (myObj.remainingQuantity == 0){
+                        location.reload();
+                    }
+                    document.getElementById("itemQuantity".concat(id)).innerHTML = myObj.remainingQuantity;
+                }
+            };
+            xhttp.open("POST", "/shop/ss/"+id, true);
+            //xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send();
+
+        }
+
+
+    </script>
 {% endblock %}

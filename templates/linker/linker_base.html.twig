@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Linker{% endblock %}
+
+{% block Navigationbar %}
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('home_page') }}">Home</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('questions_page') }}">Quiz</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('blog_page') }}"> Blog</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('shop_page') }}"> Shop</a></li>
+    <li class="quiz-Navigation-bar-li"><a class="quiz-a-active" href="{{ path('linker_page') }}"> Linker</a></li>
+{% endblock %}
+
+{% block body %}
+        <div class="grid-container">
+            {% block head_grid %}
+            <div class="header-grid">Header
+            </div>
+            {% endblock head_grid %}
+
+            {% block right_grid %}
+                <div class="right-grid">
+
+                <span style="padding-bottom: 30px">
+                Menu
+                 </span>
+                    {% block menu_user %}
+                        <div class="linker-menu-item">
+                            <a href="{{ path('user_page')}}">User {{ app.user.givenname }}</a>
+                        </div>
+                    {% endblock menu_user %}
+                    {% block menu_friend %}
+                        <div class="linker-menu-item">
+                            <a href="{{ path('friends_page') }}">Friends</a>
+                        </div>
+                    {% endblock menu_friend %}
+                    {% block menu_favorites %}
+                        <div class="linker-menu-item">
+                            <a href="{{ path('favorites_page') }}">Favorites</a>
+                        </div>
+                    {% endblock menu_favorites %}
+                    {% block menu_public %}
+                        <div class="linker-menu-item">
+                            <a href="{{ path('public_page') }}">Public</a>
+                        </div>
+                    {% endblock menu_public %}
+                    {% block menu_private %}
+                        <div class="linker-menu-item">
+                            <a href="{{ path('private_page') }}">private</a>
+                        </div>
+                    {% endblock menu_private %}
+                        <!--   <div>
+                           <div>
+                               <span>
+                                   Public
+                               </span>
+                           </div>
+                           <div>
+                               <span>
+                                   Private
+                               </span>
+                           </div>
+                            -->
+                </div>
+            {% endblock right_grid %}
+
+            {% block main_grid %}
+            <div class="main-grid">
+            </div>
+            {% endblock main_grid %}
+
+            {% block menu_grid %}
+            <div class="menu-grid">
+            </div>
+            {% endblock menu_grid %}
+
+            {% block footer_grid %}
+            <div class="footer-grid">Footer
+            </div>
+            {% endblock footer_grid %}
+        </div>
+    {% endblock body %}
+

@@ -13,6 +13,7 @@ init:
 	$(SYMFONY_CMD) doc:database:create --if-not-exists -vv && \
 	$(SYMFONY_CMD) do:mi:mi --allow-no-migration -n -vv
 	$(SYMFONY_CMD) do:fixtures:load -vv -n
+	$(SYMFONY_CMD) hautelook:fixtures:load -vv -n
 
 
 migration:
@@ -25,6 +26,15 @@ res:
 	$(SYMFONY_CMD) doc:database:create -vv && \
 	$(SYMFONY_CMD) do:mi:mi --allow-no-migration -n -vv
 	$(SYMFONY_CMD) do:fixtures:load -vv -n
+	$(SYMFONY_CMD) hautelook:fixtures:load -vv -n
+
+new:
+	$(SYMFONY_CMD) doc:database:drop --force --if-exists -vv && \
+	$(SYMFONY_CMD) doc:database:create -vv && \
+	$(SYMFONY_CMD) make:mi
+	$(SYMFONY_CMD) do:mi:mi --allow-no-migration -n -vv
+	$(SYMFONY_CMD) do:fixtures:load -vv -n
+	$(SYMFONY_CMD) hautelook:fixtures:load -vv -n
 
 serve:
 	$(SYMFONY2_CMD) serve --no-tls

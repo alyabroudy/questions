@@ -16,7 +16,7 @@ class QuestionFixture extends Fixture
         $faker = Faker\Factory::create();
         // $product = new Product();
         // $manager->persist($product);
-        $qg1= new QuestionGroup();
+     /*   $qg1= new QuestionGroup();
         $qg1->setName('group 1');
         $qg1->setDescription($faker->sentence);
 
@@ -52,5 +52,6 @@ class QuestionFixture extends Fixture
         $manager->persist($qg1);
 
         $manager->flush();
+     */
     }
 }

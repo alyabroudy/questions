@@ -1,0 +1,59 @@
+{# templates/blog/shop_homepage.html.twig #}
+{% extends 'linker/linker_base.html.twig' %}
+
+
+{% block menu_friend %}
+    <div class="linker-menu-item">
+        <a class="linker-menu-item-active" href="{{ path('friends_page', {'id': app.user.id})}}">Friends</a>
+    </div>
+{% endblock menu_friend %}
+
+{% block main_grid %}
+    <div class="main-grid">
+        <!-- Blog entries -->
+        <div class="grid-friends">
+            friends
+            <table class="card-items-table">
+                <tr>
+                    <th class="card-items-table-h">ID</th>
+                    <th class="card-items-table-h">User</th>
+                    <th class="card-items-table-h">status</th>
+                </tr>
+
+                    {% for r in relations %}
+                <tr>
+                        <td>{{ r.partner.id|default('') }}</td>
+                        <td>{{ r.partner.username|default('') }}</td>
+                        <td>{% if r.status == 0 %}
+                            Pending
+                        {% else %}
+                            Approved
+                        {% endif %}
+                        </td>
+                </tr>
+                    {% endfor %}
+            </table>
+
+            <table class="card-items-table">
+                <tr>
+                    <th class="card-items-table-h">ID</th>
+                    <th class="card-items-table-h">User</th>
+                    <th class="card-items-table-h">status</th>
+                </tr>
+            requests
+                {% for r in pendingRelations %}
+                    <tr>
+                        <td>{{ r.partner.id|default('') }}</td>
+                        <td>{{ r.partner.username|default('') }}</td>
+                        <td>{% if r.status == 0 %}
+                                Pending
+                            {% else %}
+                                Approved
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock main_grid %}

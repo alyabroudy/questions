@@ -10,6 +10,7 @@
     <li class="quiz-Navigation-bar-li"><a href="{{ path('questions_page') }}">Quiz</a></li>
     <li class="quiz-Navigation-bar-li"><a class="quiz-a-active" href="{{ path('blog_page') }}"> Blog</a></li>
     <li class="quiz-Navigation-bar-li"><a href="{{ path('shop_page') }}"> Shop</a></li>
+    <li class="quiz-Navigation-bar-li"><a href="{{ path('linker_page') }}"> Linker</a></li>
 {% endblock %}
 
 {% block body %}
@@ -32,7 +33,7 @@
                 <div class="grid-post-item">
                     <div class="post-image">
                         <a href="{{ path('post_show', {'id': post.id}) }}">
-                        <img src="{{ post.image }}" alt="Nature">
+                        <img src="{{ post.image }}">
                         </a>
                         <div>
                             <p class="post-title"><b>{{ post.title }}</b></p>

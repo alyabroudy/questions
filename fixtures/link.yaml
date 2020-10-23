@@ -1,0 +1,56 @@
+App\Entity\Link:
+  link_{1..20}:
+    name: <name()>
+    url: "https://picsum.photos/200/200?random=<current()>"
+    favorite: <boolean(50)>
+    private: <boolean(50)>
+    rate: <randomFloat(1, 0, 10)>
+    user: "@user_*"
+  link_1:
+    name: "Ratched s01 E8"
+    url: "https://akwam.co/download/31995/15145/ratched-%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%85-%D8%A7%D9%84%D8%A7%D9%88%D9%84/%D8%A7%D9%84%D8%AD%D9%84%D9%82%D8%A9-8"
+    favorite: true
+    private: false
+    rate: <randomFloat(1, 0, 10)>
+    hostName: 1
+    user: "@user_admin"
+  link_2:
+    name: "Ratched s01 E7"
+    url: "https://akwam.co/download/31993/15144/ratched-%D8%A7%D9%84%D9%85%D9%88%D8%B3%D9%85-%D8%A7%D9%84%D8%A7%D9%88%D9%84/%D8%A7%D9%84%D8%AD%D9%84%D9%82%D8%A9-7"
+    favorite: true
+    private: false
+    rate: <randomFloat(1, 0, 10)>
+    hostName: 1
+    user: "@user_admin"
+
+
+App\Entity\User:
+  user_admin:
+    givenname: <name()>
+    surname: <name()>
+    email: 'admin@gmail.com'
+    password: 123
+
+  user_g1_{1..5}:
+    givenname: <name()>
+    surname: <name()>
+    email: <email()>
+    password: 123
+  user_g2_{1..5}:
+    givenname: <name()>
+    surname: <name()>
+    email: <email()>
+    password: 123
+
+
+App\Entity\Relation:
+  relation_{1..5}:
+    user: "@user_g1_<current()>"
+    partner: "@user_g2_<current()>"
+    status: <numberBetween(0, 2)>
+    #status: 60%? <numberBetween(0, 2)>
+
+  relation_g2_{1..4}:
+    user: "@user_admin"
+    partner: "@user_g1_<current()>"
+    status: 1

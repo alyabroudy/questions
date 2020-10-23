@@ -1,0 +1,18 @@
+{# templates/blog/shop_homepage.html.twig #}
+{# templates/blog/shop_homepage.html.twig #}
+{% extends 'linker/linker_base.html.twig' %}
+
+{% block menu_user %}
+    <div class="linker-menu-item">
+        <a class="linker-menu-item-active" href="{{ path('user_page')}}">User {{ app.user.givenname }}</a>
+    </div>
+{% endblock menu_user %}
+
+{% block main_grid %}
+    <div class="main-grid">
+        <!-- Blog entries -->
+        <div class="grid-user">
+            {{ user.username }}
+        </div>
+    </div>
+{% endblock main_grid %}
