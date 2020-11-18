@@ -34,6 +34,33 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     color: red;
     font-size: 12px
 }
+
+.quiz-div-box{
+    display: inline-flex;
+    border: 3px solid green;
+}
+.quiz-div-box-answer{
+    text-align: left;
+    float: left;
+    display: block;
+    border: 3px solid green;
+}
+.quiz-title-text{
+    font-size: 20px;
+    float: left;
+    text-align: left;
+}
+.quiz-button-previous{
+    float: left;
+}
+.quiz-button-submit{
+   align-content: center;
+}
+
+.quiz-button-next{
+    float: right;
+}
+
 /* checkbox*/
 
 /* end of checkbox*/

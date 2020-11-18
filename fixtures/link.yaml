@@ -26,9 +26,14 @@ App\Entity\Link:
 
 App\Entity\User:
   user_admin:
-    givenname: <name()>
-    surname: <name()>
+    givenname: admin
+    surname: ss
     email: 'admin@gmail.com'
+    password: 123
+  user_demo:
+    givenname: demo
+    surname: mm
+    email: 'demo@gmail.com'
     password: 123
 
   user_g1_{1..5}:

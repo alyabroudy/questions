@@ -5,10 +5,13 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/")
+ */
 class HomePageController extends AbstractController
 {
     /**
-     * @Route("/homepage", name="home_page")
+     * @Route("/", name="home_page")
      */
     public function index()
     {

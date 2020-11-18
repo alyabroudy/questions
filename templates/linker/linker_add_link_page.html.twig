@@ -1,0 +1,40 @@
+{# templates/blog/shop_homepage.html.twig #}
+{% extends 'linker/linker_base.html.twig' %}
+
+{% block menu_add_link %}
+    <div class="linker-menu-item">
+        <a href="{{ path('add_link_page') }}">Add Link</a>
+    </div>
+{% endblock menu_add_link %}
+
+{% block main_grid %}
+    <div class="main-grid">
+        <!-- Blog entries -->
+        <div class="grid-friends">
+                <p>{{ app.user.username }}</p>
+
+            {% for flashError in app.flashes('add_link_error') %}
+                <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+            {% endfor %}
+
+            <h1>Add Link</h1>
+
+            {{ form_start(linkForm) }}
+            {{ form_row(linkForm.name) }}
+            {{ form_row(linkForm.url, {
+                label: 'Url'
+            }) }}
+            {{ form_row(linkForm.hostName) }}
+            {{ form_row(linkForm.private) }}
+
+            <button type="submit" class="btn">Add</button>
+            {{ form_end(linkForm) }}
+
+
+
+
+
+
+        </div>
+    </div>
+{% endblock main_grid %}

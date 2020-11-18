@@ -37,20 +37,67 @@ class RelationRepository extends ServiceEntityRepository
     }
     */
 
-    public function findRelationsOfUserByStatus(User $user, $status)
+    public function findRelationsOfUser(User $user)
     {
         $qb = $this->createQueryBuilder('r');
-           $result = $qb->andWhere($qb->expr()->andX(
-               $qb->expr()->eq('r.user',':val'),
-               $qb->expr()->eq('r.status',':val2')
-           ))
+           $result = $qb->andWhere(
+               $qb->expr()->eq('r.user',':val')
+           )
             ->setParameter('val', $user->getId())
-            ->setParameter('val2', $status)
             ->orderBy('r.id', 'ASC')
             //->setMaxResults(10)
             ->getQuery()
             ->getResult()
             ;
+        return $result;
+    }
+
+    public function findRelationRequestOfUser(User $user)
+    {
+        $qb = $this->createQueryBuilder('r');
+        $result = $qb->andWhere(
+            $qb->expr()->eq('r.partner',':val')
+        )
+            ->setParameter('val', $user->getId())
+            ->orderBy('r.id', 'ASC')
+            //->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+        return $result;
+    }
+
+    public function findRelationRequestByUserAndPartner(User $user, User $partner)
+    {
+        $qb = $this->createQueryBuilder('r');
+        $result = $qb->andWhere($qb->expr()->andX(
+            $qb->expr()->eq('r.partner',':val'),
+            $qb->expr()->eq('r.status',':val2')
+        ))
+            ->setParameter('val', $user->getId())
+            ->setParameter('val2', $user->getId())
+            //->orderBy('r.id', 'ASC')
+            //->setMaxResults(10)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+        return $result;
+    }
+
+    public function findRelationByUserAndPartner(User $user, User $partner)
+    {
+        $qb = $this->createQueryBuilder('r');
+        $result = $qb->andWhere($qb->expr()->andX(
+            $qb->expr()->eq('r.user',':val'),
+            $qb->expr()->eq('r.partner',':val2')
+        ))
+            ->setParameter('val', $user->getId())
+            ->setParameter('val2', $partner->getId())
+            //->orderBy('r.id', 'ASC')
+            //->setMaxResults(10)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
         return $result;
     }
 

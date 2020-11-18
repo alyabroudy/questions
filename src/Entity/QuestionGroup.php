@@ -34,9 +34,16 @@ class QuestionGroup
      */
     private $questions;
 
-    public function __construct()
+    /**
+     * @ORM\OneToMany(targetEntity=Scenario::class, mappedBy="questionGroup")
+     */
+    private $scenarios;
+
+    public function __construct($name =null)
     {
+        $this->name = $name;
         $this->questions = new ArrayCollection();
+        $this->scenarios = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -102,6 +109,37 @@ class QuestionGroup
     public function __toString()
     {
         return 'id='.$this->id. ', name='.$this->name.', description='.$this->description;
+    }
+
+    /**
+     * @return Collection|Scenario[]
+     */
+    public function getScenarios(): Collection
+    {
+        return $this->scenarios;
+    }
+
+    public function addScenario(Scenario $scenario): self
+    {
+        if (!$this->scenarios->contains($scenario)) {
+            $this->scenarios[] = $scenario;
+            $scenario->setQuestionGroup($this);
+        }
+
+        return $this;
+    }
+
+    public function removeScenario(Scenario $scenario): self
+    {
+        if ($this->scenarios->contains($scenario)) {
+            $this->scenarios->removeElement($scenario);
+            // set the owning side to null (unless already changed)
+            if ($scenario->getQuestionGroup() === $this) {
+                $scenario->setQuestionGroup(null);
+            }
+        }
+
+        return $this;
     }
 
 

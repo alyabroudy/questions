@@ -11,11 +11,33 @@
         {% endblock %}
         <ul class="quiz-Navigation-bar-ul">
             {% block Navigationbar %}
-
-                <li class="quiz-Navigation-bar-li"><a class="quiz-a-active" href="{{ path('home_page') }}">Home</a></li>
-                <li class="quiz-Navigation-bar-li"><a href="{{ path('questions_page') }}">Quiz</a></li>
-                <li class="quiz-Navigation-bar-li"><a href="{{ path('blog_page') }}"> Blog</a></li>
-                <li class="quiz-Navigation-bar-li"><a href="{{ path('shop_page') }}"> Shop</a></li>
+                {% block menu_home %}
+                    <li class="quiz-Navigation-bar-li"><a href="{{ path('home_page') }}">Home</a></li>
+                {% endblock menu_home %}
+                {% block menu_quiz %}
+                    <li class="quiz-Navigation-bar-li"><a href="{{ path('questions_page') }}"> Quiz</a></li>
+                {% endblock menu_quiz %}
+                {% block menu_blog %}
+                    <li class="quiz-Navigation-bar-li"><a href="{{ path('blog_page') }}"> Blog</a></li>
+                {% endblock menu_blog %}
+                {% block menu_shop %}
+                    <li class="quiz-Navigation-bar-li"><a href="{{ path('shop_page') }}"> Shop</a></li>
+                {% endblock menu_shop %}
+                {% block menu_linker %}
+                    <li class="quiz-Navigation-bar-li"><a href="{{ path('linker_page') }}"> Linker</a></li>
+                {% endblock menu_linker %}
+                {% if app.user %}
+                    {% block menu_logout %}
+                        <li class="quiz-Navigation-bar-li"><a href="{{ path('app_logout') }}"> Logout</a></li>
+                    {% endblock menu_logout %}
+                    {% else %}
+                        {% block menu_register %}
+                            <li class="quiz-Navigation-bar-li"><a href="{{ path('app_register') }}"> Register</a></li>
+                        {% endblock menu_register %}
+                        {% block menu_login %}
+                            <li class="quiz-Navigation-bar-li"><a href="{{ path('app_login') }}"> Login</a></li>
+                        {% endblock menu_login %}
+                {% endif %}
             {% endblock %}
         </ul>
     </head>

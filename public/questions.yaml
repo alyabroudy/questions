@@ -1,0 +1,34 @@
+App\Entity\QuestionGroup:
+  questionGroup_{1..2}:
+    name: <sentence()>
+    description: <sentence()>
+
+App\Entity\Question:
+  question_{1..10}:
+    title: <sentence()>
+    description: <sentence()>
+    isMultipleChoice: true
+    questionGroup: "@questionGroup_*"
+    answers: ["@answer1_<current()>", "@answer2_<current()>", "@answer3_<current()>"]
+
+
+App\Entity\Answer:
+  answer1_{1..10}:
+    title: <sentence()>
+    description: <sentence()>
+    isCorrect: <boolean()>
+    question: "@question_<current()>"
+  answer2_{1..10}:
+    title: <sentence()>
+    description: <sentence()>
+    isCorrect: <boolean()>
+    question: "@question_<current()>"
+  answer3_{1..10}:
+    title: <sentence()>
+    description: <sentence()>
+    isCorrect: <boolean()>
+    question: "@question_<current()>"
+
+
+
+

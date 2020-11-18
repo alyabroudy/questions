@@ -24,42 +24,35 @@
 
 
         <div class="main-grid">
-            <h3>Hello Question Groups: ✅</h3>
+            <h6>{{ questionGroup.name }} QuestionsGroup: ✅</h6>
 
-            {% set ques = currentQues %}
-            {% set answerCounter =1 %}
+            <div id="scenarioBox" class="quiz-div-box">
+                <span id="scenarioText" class="quiz-title-text"></span>
+                <span id="scenarioPoints" class="quiz-title-text"></span>
+                <div id="scenarioImage">
+                    <img src="">
 
-
-            <fieldset id="{{ ques.id }}fieldset" data-question-id="{{ ques.id }}">
-                <legend>{{ ques.id }}# {{ ques.title }}?</legend>
-                <input type="hidden" id="answersCount" value="{{ ques.answers|length }}">
-                <div class="quiz-answer">
-                {% for answer in ques.answers %}
-
-                    <p id="a{{ answerCounter }}text">
-                        <input type="checkbox" class="ques-checkbox" id="a{{ answerCounter }}" data-real-answer="{{ answer.isCorrect }}">
-                        <label for="a{{ answerCounter }}">
-                            {{ answer.title }}  <span id="a{{ answerCounter }}icon"></span>
-                        </label>
-                    </p>
-                    <br>
-
-                    {% set answerCounter = 1+answerCounter %}
-                {% endfor %}
                 </div>
-                <br>
+            </div>
 
-            </fieldset>
+            <div id="quizBox" class="quiz-div-box">
 
-            <form action="{{ path('questions_show', {'id': ques.next.id|default(ques.id) }) }}">
-                <input class="quiz-btn-next" id="next" type="submit" value="Next Question">
-            </form>
-            <form action="{{ path('questions_show', {'id': ques.previos.id|default(ques.id) }) }}">
-                <input class="quiz-btn-previous" type="submit" value="Previous Question">
-            </form>
-            <button id="submit" style="float:  left" onclick="myFunction()">Submit Quiz</button>
+                <span id="quizText" class="quiz-title-text">
 
-            <p id="results"></p>
+                </span>
+
+                <div id="quizImage">
+                </div>
+            </div>
+
+            <div id="answerStatus"></div>
+            <div id="answersBox" class="quiz-div-box-answer"></div>
+            <div id="answersDes" class="quiz-div-box">
+            </div>
+            <div id="controlBox" class="quiz-div-box">
+
+                control box
+            </div>
 
         </div>
 
@@ -70,42 +63,252 @@
 
     {% block javascripts %}
         <script>
-            function myFunction() {
-                var answersCount = document.getElementById('answersCount').value;
-                var results = document.getElementById('results');
-                var resultsValue = document.getElementById('results');
+            var questionGroupId;
+            let scenarioCounter = 0;
+            let quizCounter = 0;
+            let questionGroup = null;
 
-                for (var i=1; i <= answersCount; i++){
-                    var answerBox =document.getElementById('a'.concat(i.toString()));
-                    var answerBoxName ='a'.concat(i.toString());
-                    var userAnswer = answerBox.checked;
-                    var realAnswer = answerBox.dataset.realAnswer;
-                     validateAnswer(answerBoxName, userAnswer, realAnswer);
+            /**
+             * its called on page load
+             * fill the page with scenarios and questions
+             */
+            function prepareScenarios(){
+                //console.log(questionGroup);
+
+                let scenarios = questionGroup.scenarios;
+                let currentScenario = scenarios[scenarioCounter];
+                let quizs = currentScenario.questions
+                let currentQuiz = quizs[quizCounter];
+                document.getElementById('controlBox').innerHTML = '';
+                document.getElementById('answersBox').innerHTML = '';
+
+               // console.log(scenarios[scenarioCounter]);
+                console.log(currentQuiz[quizCounter]);
+                //document.getElementById('scenarioText').innerText = 'Scenario:'.concat(currentScenario.title.replace(/(\r\n|\n|\r)/gm,""));
+                document.getElementById('scenarioText').innerText = 'Scenario:'.concat(currentScenario.title);
+                document.getElementById('scenarioPoints').innerText = ' #Points:'.concat(currentScenario.points);
+                if (currentScenario.image){
+                    document.getElementById('scenarioImage').innerText = currentScenario.image;
                 }
-                var ff= parseInt(resultsValue.value);
-                results.innerText = ff +'d';
-            }
+                //quizs
+                document.getElementById('quizText').innerText = currentQuiz.title;
+                if (currentQuiz.image) {
+                    document.getElementById('quizImage').innerText = currentQuiz.image;
+                }
+                //answers
+                if (currentQuiz.isMultipleChoice){
+                    document.getElementById('answersBox').innerHTML = '';
+                    var answers = currentQuiz.answers;
+                    answers.forEach(addAnswer);
 
-            function validateAnswer(answerBoxName, userAnswer, realAnswer)
-            {
-                var correct = "\&#9989;";
-                var wrong = "\&#10060;";
-                var answerBoxText =document.getElementById(answerBoxName.concat('text'));
-                var answerBoxIcon =document.getElementById(answerBoxName.concat('icon'));
-
-                if ( (!userAnswer && realAnswer === "" || (userAnswer && realAnswer === "1")))
-                {
-                    answerBoxText.style.backgroundColor='lightgreen';
-                    answerBoxIcon.innerHTML = correct;
-                    return 1;
                 }else{
-                    answerBoxText.style.backgroundColor='red';
-                    answerBoxIcon.innerHTML = wrong;
-                    return 0;
+                    var input = document.createElement("input");
+                    input.setAttribute('type', 'text');
+                    input.setAttribute('id', 'answerInputText');
+                    input.setAttribute('placeholder', 'Your Answer');
+                    //var textAnswer = document.createTextNode(index.concat( item.title ));
+                    //answer.appendChild(textAnswer);
+                    document.getElementById("answersBox").appendChild(input);
+                }
+                //contorl buttons
+                //previous Quiz button
+                if (scenarioCounter > 0 || quizCounter > 0){
+                    var previousButton = document.createElement("button");
+                    previousButton.innerHTML = 'Previous';
+                    previousButton.setAttribute('class', 'quiz-button-previous');
+                    previousButton.setAttribute('id', 'previousButton');
+                    document.getElementById("controlBox").appendChild(previousButton);
+                    document.getElementById("previousButton").onclick = function(){ return previousQuestion(scenarios,quizs)};
+                }
+
+                //answer submit
+                var inputButton = document.createElement("button");
+                inputButton.innerHTML = 'Submit';
+                inputButton.setAttribute('class', 'quiz-button-submit');
+                inputButton.setAttribute('id', 'inputButton');
+                //inputButton.setAttribute('onclick', 'validateAnswers(currentQuiz)');
+                document.getElementById("controlBox").appendChild(inputButton);
+                document.getElementById("inputButton").onclick = function(){ return validateAnswers(currentQuiz)};
+
+                //next Quiz button
+                var nextButton = document.createElement("button");
+                nextButton.innerHTML = 'Next';
+                nextButton.setAttribute('class', 'quiz-button-next');
+                nextButton.setAttribute('id', 'nextButton');
+                document.getElementById("controlBox").appendChild(nextButton);
+                document.getElementById("nextButton").onclick = function(){ return nextQuestion(scenarios,quizs)};
+
+
+                //document.getElementById('answersBox').innerText = currentScenario.title;
+                //console.log(questionGroup.scenarios)
+            }
+
+            /**
+             * validate the answers of a question then call method showAnswerDescription
+             * @param quiz the current question
+             */
+            function validateAnswers(quiz){
+                console.log('validateAnswers');
+                console.log(quiz);
+                if (quiz.isMultipleChoice){
+                    for (i = 0; i < quiz.answers.length; i++){
+                        userAnswer = document.getElementById('answer'.concat(i)).checked;
+                        console.log(userAnswer && quiz.answers[i].isCorrect);
+                        if (userAnswer && quiz.answers[i].isCorrect){
+                            document.getElementById('label'.concat(i)).append('✅');
+                            document.getElementById('label'.concat(i)).style.color= 'Green';
+                        }else if (!userAnswer && !quiz.answers[i].isCorrect) {
+                            //document.getElementById('label'.concat(i)).append('✅');
+                            document.getElementById('label'.concat(i)).style.color= 'Green';
+                        }else {
+                            document.getElementById('label'.concat(i)).style.color= 'Red';
+                        }
+                    }
+                }else {
+                    userAnswer = document.getElementById('answerInputText').value;
+                    if (quiz.answerDescription.includes(userAnswer)){
+                        document.getElementById('answerStatus').innerHTML= 'Correct';
+                        document.getElementById('answerStatus').style.color= 'Green';
+                    }else {
+                        document.getElementById('answerStatus').innerHTML= 'Wrong';
+                        document.getElementById('answerStatus').style.color= 'Red';
+                    }
+                }
+                showAnswerDescription(quiz);
+            }
+
+            /**
+             * navigate to next question or next scenario if available
+             * @param scenarios
+             * @param quizs
+             */
+            function nextQuestion(scenarios, quizs){
+                console.log('nextQiuz');
+                document.getElementById('answerStatus').innerHTML= '';
+                document.getElementById('answersDes').innerHTML= '';
+                var nextQuiz= quizCounter +1;
+                if (quizs[nextQuiz]){
+                    quizCounter = quizCounter +1;
+                     return prepareScenarios();
+                }else {
+                    var nextScenario= scenarioCounter +1;
+                    if (scenarios[nextScenario]) {
+                        scenarioCounter = scenarioCounter + 1;
+                        quizCounter = 0;
+                        return prepareScenarios();
+                    }else{
+                        return finishScenarios();
+                    }
                 }
             }
 
+            /**
+             * shows answer description of a question
+             * @param quiz
+             */
+            function showAnswerDescription(quiz){
+                console.log('showAnswerDescription');
+                document.getElementById("answersDes").innerHTML='';
+                var answerDes = document.createElement("span");
+                answerDes.innerText = quiz.answerDescription;
+                answerDes.setAttribute('class', 'quiz-title-text');
+                answerDes.setAttribute('id', 'answerDescription');
+                document.getElementById("answersDes").appendChild(answerDes);
+            }
 
+            /**
+             * navigate to a previous question or a previous scenario if available
+             * @param scenarios
+             * @param quizs
+             */
+            function previousQuestion(scenarios, quizs){
+                console.log('previousQuiz');
+                document.getElementById('answerStatus').innerHTML= '';
+                document.getElementById('answersDes').innerHTML= '';
+                var previousQuiz= quizCounter - 1;
+                if (quizs[previousQuiz]){
+                    quizCounter = quizCounter -1;
+                    return prepareScenarios();
+                }else {
+                    var previousScenario= scenarioCounter - 1;
+                    if (scenarios[previousScenario]) {
+                        scenarioCounter = scenarioCounter - 1;
+                        quizCounter = scenarios[scenarioCounter].questions.length -1;
+                        console.log(quizCounter);
+                        return prepareScenarios();
+                    }else{
+                       // return finishScenarios();
+                    }
+                }
+            }
+
+            /**
+             * when no scenarios more available
+             */
+            function finishScenarios(){
+                document.getElementById("controlBox").innerHTML='finshed';
+            }
+
+            /**
+             * add an answer element to the page if the question is MultipleChoice
+             * @param item
+             * @param index
+             */
+            function addAnswer(item, index) {
+                var answer = document.createElement("input");
+                answer.setAttribute('type', 'checkbox');
+                answer.setAttribute('class', 'quiz-div-box-answer');
+                answer.setAttribute('id', 'answer'.concat(index.toString()));
+                var answerLabel = document.createElement("label");
+                answerLabel.setAttribute('for','answer'.concat(index.toString()) );
+                answerLabel.setAttribute('id', 'label'.concat(index.toString()));
+                answerLabel.setAttribute('class', 'quiz-title-text');
+                var textAnswer = document.createTextNode((index+1).toString().concat( item.title ));
+                answerLabel.appendChild(textAnswer);
+                document.getElementById("answersBox").appendChild(answer);
+                document.getElementById("answersBox").appendChild(answerLabel);
+                var br = document.createElement('br');
+                document.getElementById("answersBox").appendChild(br);
+
+                //document.getElementById("demo").innerHTML += index + ":" + item.title + "<br>";
+            }
+
+            /**
+             * to be called on page load to load the questionGroup from database
+             * using http request to localhost/questions/questionsgroup/id
+             * @param id
+             */
+            function loadQuestionsGroup(id) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var response = this.responseText
+                        var responseJson = JSON.parse(response);
+                        //console.log(JSON.parse(responseJson))
+                        questionGroup= JSON.parse(responseJson);
+                       prepareScenarios();
+                    }
+                };
+                xhttp.open("POST", "/questions/questionsgroup/"+id, true);
+                //xhttp.setRequestHeader("Content-type", "application/json");
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send();
+            }
+
+
+            /**
+             * to be called on page load to identify the questionGroup id and call LoadQuestionsGroup method
+             */
+            function getQuestionGroup(){
+                 questionGroupId = "{{ questionGroup.id }}";
+                questionGroup = loadQuestionsGroup(questionGroupId);
+            }
+
+
+            /**
+             * listen to load event of the page
+             */
+            document.addEventListener("DOMContentLoaded", getQuestionGroup);
         </script>
 
     {% endblock %}

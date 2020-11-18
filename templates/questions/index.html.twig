@@ -2,14 +2,9 @@
 
 {% block title %}Quiz App!{% endblock %}
 
-{% block Navigationbar %}
-
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('home_page') }}">Home</a></li>
+{% block menu_quiz %}
     <li class="quiz-Navigation-bar-li"><a class="quiz-a-active" href="{{ path('questions_page') }}">Quiz</a></li>
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('blog_page') }}"> Blog</a></li>
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('shop_page') }}"> Shop</a></li>
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('linker_page') }}"> Linker</a></li>
-{% endblock %}
+{% endblock menu_quiz %}
 
 {% block body %}
     <div class="grid-container">
@@ -28,7 +23,7 @@
             <h6>Hello Question Groups: ✅</h6>
             {% for group in questionGroups %}
                 <div class="post-image">
-                <a class="post-menu-bar" href="{{ path('questions_show', {'id': group.questions.first.id}) }}">{{ group.name }}</a>
+                <a class="post-menu-bar" href="{{ path('questions_show', {'id': group.id}) }}">{{ group.name }}</a>
                 <p class="post-description">{{ group.description }}</p>
 
             </div>

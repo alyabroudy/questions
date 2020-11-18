@@ -3,14 +3,9 @@
 
 {% block title %}Shop App!{% endblock %}
 
-{% block Navigationbar %}
-
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('home_page') }}">Home</a></li>
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('questions_page') }}">Quiz</a></li>
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('blog_page') }}"> Blog</a></li>
+{% block menu_shop %}
     <li class="quiz-Navigation-bar-li"><a class="quiz-a-active" href="{{ path('shop_page') }}"> Shop</a></li>
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('linker_page') }}"> Linker</a></li>
-{% endblock %}
+{% endblock menu_shop %}
 
 {% block body %}
 

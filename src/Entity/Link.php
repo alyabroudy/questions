@@ -13,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 class Link
 {
     public const HOST_AKWAM = 1;
+    public const HOST_CIMA4UP = 2;
+    public const HOST_CINEMA4U = 3;
 
     /**
      * @ORM\Id()

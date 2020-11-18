@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Link;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,11 +15,19 @@ class LinkType extends AbstractType
         $builder
             ->add('name')
             ->add('url')
-            ->add('private')
-            ->add('favorite')
-            ->add('rate')
-            ->add('hostName')
-            ->add('user')
+            ->add('hostName', ChoiceType::class, [
+                'choices' => [
+                    'Akwam' => 1,
+                    'Cima4Up' => 2,
+                    'Cima4u' => 3,
+                ],
+            ])
+            ->add('private', ChoiceType::class, [
+                'choices' => [
+                    'yes' => true,
+                    'no' => false,
+                ],
+            ])
         ;
     }
 

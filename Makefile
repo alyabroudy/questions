@@ -14,6 +14,7 @@ init:
 	$(SYMFONY_CMD) do:mi:mi --allow-no-migration -n -vv
 	$(SYMFONY_CMD) do:fixtures:load -vv -n
 	$(SYMFONY_CMD) hautelook:fixtures:load -vv -n
+	$(SYMFONY_CMD) xml:import
 
 
 migration:
@@ -27,6 +28,7 @@ res:
 	$(SYMFONY_CMD) do:mi:mi --allow-no-migration -n -vv
 	$(SYMFONY_CMD) do:fixtures:load -vv -n
 	$(SYMFONY_CMD) hautelook:fixtures:load -vv -n
+	$(SYMFONY_CMD) xml:import
 
 new:
 	$(SYMFONY_CMD) doc:database:drop --force --if-exists -vv && \
@@ -35,6 +37,7 @@ new:
 	$(SYMFONY_CMD) do:mi:mi --allow-no-migration -n -vv
 	$(SYMFONY_CMD) do:fixtures:load -vv -n
 	$(SYMFONY_CMD) hautelook:fixtures:load -vv -n
+	$(SYMFONY_CMD) xml:import
 
 serve:
 	$(SYMFONY2_CMD) serve --no-tls

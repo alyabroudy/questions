@@ -1,7 +1,6 @@
 {# templates/blog/shop_homepage.html.twig #}
 {% extends 'linker/linker_base.html.twig' %}
 
-
 {% block menu_friend %}
     <div class="linker-menu-item">
         <a class="linker-menu-item-active" href="{{ path('friends_page', {'id': app.user.id})}}">Friends</a>
@@ -24,11 +23,10 @@
                 <tr>
                         <td>{{ r.partner.id|default('') }}</td>
                         <td>{{ r.partner.username|default('') }}</td>
-                        <td>{% if r.status == 0 %}
-                            Pending
-                        {% else %}
-                            Approved
-                        {% endif %}
+                        <td>
+                            <div id="removeFriend{{ r.partner.id }}">
+                                <input onclick="removeFriend({{ r.partner.id }})" type="submit" value="remove Friend">
+                            </div>
                         </td>
                 </tr>
                     {% endfor %}
@@ -41,15 +39,16 @@
                     <th class="card-items-table-h">status</th>
                 </tr>
             requests
-                {% for r in pendingRelations %}
+                {% for r in relationRequests %}
                     <tr>
-                        <td>{{ r.partner.id|default('') }}</td>
-                        <td>{{ r.partner.username|default('') }}</td>
-                        <td>{% if r.status == 0 %}
-                                Pending
-                            {% else %}
-                                Approved
-                            {% endif %}
+                        <td>{{ r.user.id|default('') }}</td>
+                        <td>{{ r.user.username|default('') }}</td>
+                        <td>
+                            {{ if r.status == 0 }}
+                            <div id="approveFriend{{ r.user.id }}">
+                                <input onclick="approveFriend({{ r.user.id }})" type="submit" value="Approve">
+                                <input onclick="cancelFriendRequest({{ r.user.id }})" type="submit" value="Cancel">
+                            </div>
                         </td>
                     </tr>
                 {% endfor %}
@@ -57,3 +56,65 @@
         </div>
     </div>
 {% endblock main_grid %}
+
+{% block javascripts %}
+    <script>
+        function removeFriend(id){
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var myObj = JSON.parse(this.responseText);
+                    console.log(myObj);
+                    document.getElementById('removeFriend'.concat(id)).innerHTML = myObj.message.fontcolor('Green');
+                }
+            };
+            xhttp.open("POST", "/user/removeFriend/"+id, true);
+            //xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send();
+
+        }
+
+        function approveFriend(id){
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var myObj = JSON.parse(this.responseText);
+                    console.log(myObj);
+                    document.getElementById('approveFriend'.concat(id)).innerHTML = myObj.message.fontcolor('Green');
+                }
+            };
+            xhttp.open("POST", "/user/approveFriend/"+id, true);
+            //xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send();
+
+        }
+
+
+        function cancelFriendRequest(id){
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var myObj = JSON.parse(this.responseText);
+                    console.log(myObj);
+                    document.getElementById('approveFriend'.concat(id)).innerHTML = myObj.message.fontcolor('Green');
+                }
+            };
+            xhttp.open("POST", "/user/removeFriend/"+id, true);
+            //xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send();
+
+        }
+
+
+    </script>
+
+{% endblock javascripts %}

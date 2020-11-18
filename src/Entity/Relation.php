@@ -20,12 +20,12 @@ class Relation
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="relations")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="relations", cascade={"persist", "remove"})
      */
     private $user;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class, cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=User::class, cascade={"persist", "remove"})
      */
     private $partner;
 
@@ -37,14 +37,18 @@ class Relation
     public const PENDING_STATUS = 0;
     public const APPROVED_STATUS = 1;
     public const REJECTED_STATUS = 2;
+    public const CANCELED_STATUS = 3;
 
     /**
      * Relation constructor.
      */
-    public function __construct()
+    public function __construct(User $user=null, User $partner=null)
     {
+        $this->user = $user;
+        $this->partner = $partner;
         $this->status = self::PENDING_STATUS;
     }
+
 
 
     public function getId(): ?int

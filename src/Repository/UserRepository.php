@@ -8,6 +8,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use function Doctrine\ORM\QueryBuilder;
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -34,6 +35,27 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $user->setPassword($newEncodedPassword);
         $this->_em->persist($user);
         $this->_em->flush();
+    }
+
+    public function findByName($value)
+    {
+        $qb= $this->createQueryBuilder('u');
+        $result= $qb->andWhere(
+            $qb->expr()->orX(
+                $qb->expr()->like('u.surname', ':sname') ,
+                $qb->expr()->like('u.givenname', ':gname')
+            )
+        )
+            ->setParameter(':sname', '%' . $value . '%')
+            ->setParameter(':gname', '%' . $value . '%')
+            ->orderBy('u.surname', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+           // ->getDQL()
+            ->getResult()
+            ;
+       // dd($result);
+        return $result;
     }
 
     // /**

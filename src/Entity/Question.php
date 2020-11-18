@@ -20,7 +20,7 @@ class Question
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $title;
 
@@ -57,7 +57,22 @@ class Question
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $isMultiableChoice;
+    private $isMultipleChoice;
+
+    /**
+     * @ORM\Column(type="smallint", nullable=true)
+     */
+    private $points;
+
+    /**
+     * @ORM\Column(type="string", length=10, nullable=true)
+     */
+    private $currectAnswer;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $answerDescription;
 
 
     public function __construct()
@@ -139,7 +154,8 @@ class Question
 
     public function __toString()
     {
-        return 'id='.$this->id. ', title='.$this->title.', description='.$this->description;
+        return 'id='.$this->id. ', title='.$this->title.', description='.$this->description
+            .', points='.$this->points;
     }
 
     public function getNext(): ?self
@@ -178,14 +194,50 @@ class Question
         return $this;
     }
 
-    public function getIsMultiableChoice(): ?bool
+    public function getIsMultipleChoice(): ?bool
     {
-        return $this->isMultiableChoice;
+        return $this->isMultipleChoice;
     }
 
-    public function setIsMultiableChoice(?bool $isMultiableChoice): self
+    public function setIsMultipleChoice(?bool $isMultipleChoice): self
     {
-        $this->isMultiableChoice = $isMultiableChoice;
+        $this->isMultipleChoice = $isMultipleChoice;
+
+        return $this;
+    }
+
+    public function getPoints(): ?int
+    {
+        return $this->points;
+    }
+
+    public function setPoints(?int $points): self
+    {
+        $this->points = $points;
+
+        return $this;
+    }
+
+    public function getCurrectAnswer(): ?string
+    {
+        return $this->currectAnswer;
+    }
+
+    public function setCurrectAnswer(?string $currectAnswer): self
+    {
+        $this->currectAnswer = $currectAnswer;
+
+        return $this;
+    }
+
+    public function getAnswerDescription(): ?string
+    {
+        return $this->answerDescription;
+    }
+
+    public function setAnswerDescription(?string $answerDescription): self
+    {
+        $this->answerDescription = $answerDescription;
 
         return $this;
     }

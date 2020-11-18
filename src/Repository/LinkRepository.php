@@ -74,6 +74,23 @@ class LinkRepository extends ServiceEntityRepository
         return $result;
     }
 
+    public function findByName($value)
+    {
+        $qb= $this->createQueryBuilder('l');
+        $result= $qb->andWhere(
+                $qb->expr()->like('l.name', ':lname')
+        )
+            ->setParameter(':lname', '%' . $value . '%')
+            ->orderBy('l.name', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            // ->getDQL()
+            ->getResult()
+        ;
+        // dd($result);
+        return $result;
+    }
+
     // /**
     //  * @return Link[] Returns an array of Link objects
     //  */

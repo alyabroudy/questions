@@ -1,0 +1,74 @@
+{# templates/blog/shop_homepage.html.twig #}
+{% extends 'linker/linker_base.html.twig' %}
+
+
+{% block main_grid %}
+    <div class="main-grid">
+        <!-- Blog entries -->
+        <div class="grid-friends">
+            <span>search results for: <b>{{ query }}</b> </span>
+            <br>
+            users
+            <table class="card-items-table">
+                <tr>
+                    <th class="card-items-table-h">ID</th>
+                    <th class="card-items-table-h">name</th>
+                    <th class="card-items-table-h">Email</th>
+                    <th></th>
+                </tr>
+
+                    {% for u in users %}
+                <tr>
+                        <td>{{ u.id|default('') }}</td>
+                        <td>{{ u.username|default('') }}</td>
+                        <td>{{ u.email }}</td>
+                        <td>
+                            <div id="addToFriends{{ u.id }}">
+                                <input onclick="addToFriend({{ u.id }})" type="submit" value="Add Friend">
+                            </div>
+                        </td>
+                </tr>
+                    {% endfor %}
+            </table>
+<br>
+            <table class="card-items-table">
+                <tr>
+                    <th class="card-items-table-h">ID</th>
+                    <th class="card-items-table-h">name</th>
+                </tr>
+            links
+                {% for l in links %}
+                    <tr>
+                        <td>{{ l.id|default('') }}</td>
+                        <td>{{ l.name|default('') }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock main_grid %}
+
+{% block javascripts %}
+    <script>
+function addToFriend(id){
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    var myObj = JSON.parse(this.responseText);
+                    console.log(myObj);
+                    document.getElementById('addToFriends'.concat(id)).innerHTML = myObj.message.fontcolor('Green');
+                }
+            };
+            xhttp.open("POST", "/user/addFriend/"+id, true);
+            //xhttp.setRequestHeader("Content-type", "application/json");
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send();
+
+}
+
+
+</script>
+
+{% endblock javascripts %}

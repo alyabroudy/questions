@@ -44,12 +44,17 @@ class Scenario
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $totalPoints;
+    private $points;
 
     /**
      * @ORM\OneToMany(targetEntity=Question::class, mappedBy="scenario")
      */
     private $questions;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=QuestionGroup::class, inversedBy="scenarios")
+     */
+    private $questionGroup;
 
     public function __construct()
     {
@@ -109,14 +114,14 @@ class Scenario
         return $this;
     }
 
-    public function getTotalPoints(): ?int
+    public function getPoints(): ?int
     {
-        return $this->totalPoints;
+        return $this->points;
     }
 
-    public function setTotalPoints(?int $totalPoints): self
+    public function setPoints( $points): self
     {
-        $this->totalPoints = $totalPoints;
+        $this->points = $points;
 
         return $this;
     }
@@ -151,4 +156,24 @@ class Scenario
 
         return $this;
     }
+
+    public function getQuestionGroup(): ?QuestionGroup
+    {
+        return $this->questionGroup;
+    }
+
+    public function setQuestionGroup(?QuestionGroup $questionGroup): self
+    {
+        $this->questionGroup = $questionGroup;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return 'id='.$this->id. ', title='.$this->title.', description='.$this->description
+            .', image='.$this->image.', points='.$this->points;
+    }
+
+
 }

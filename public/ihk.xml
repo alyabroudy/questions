@@ -1,0 +1,1840 @@
+<?xml version="1.0" ?>
+<scenarios>
+    <scenario>
+        <fach>
+            ITK
+        </fach>
+        <description>
+            Abschluss Prufueng
+        </description>
+        <title>
+            "Der Vertriebsmitarbeiter Peterson hat den Manager und zwei Mitglieder des Ensembles
+            „Plattfuß“ zu einem ersten Beratungsgespräch zur Creative-Ad GmbH eingeladen. Da
+            Herr Peterson nicht in der Lage ist alle technischen Fragestellungen zu beantworten,
+            werden Sie im Verlauf des Gespräches hinzugezogen."
+        </title>
+        <image>
+            0
+        </image>
+        <points>
+            20
+        </points>
+        <questions>
+            <question>
+                <title>
+                    Nennen Sie vier Aspekte, warum das Ensemble „Plattfuss" seine Außendarstellung durch Internetpräsenz ergänzen sollte!
+                </title>
+                <points>
+                    4
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "a) Internetpräsenz Zielgruppengerechtes Informationsangebot Globale Reichweite
+                    Hohe Aktualität und schnelle Reaktionszeiten bei Änderungen
+                    Erfüllung zeitgemäßer Anforderungen
+                    Aufbau von Kommunikation mit den Fans (z. B. Gästebuch, Mailangebot, ...)
+                    Vertrieb von Merchandising-Produkten"
+                </answerDescription>
+                <answers>
+
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "b) Als unerfahrene Internetnutzer interessieren sich die Kunden für den detaillierten
+                    Aufbau von Internetadressen. Als Beispiel ziehen Sie die folgende Adresse heran:
+                    http://www.ensemble-plattfuss.de/termine/uebersicht.html
+                    Bezeichnen Sie die sechs einzelnen Teilbereiche dieser Web-Adresse!"
+                </title>
+                <points>
+                    6
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "Web-Adresse: Die Web-Adresse http://www.ensemble-plattfuss.de/termine/uebersicht.html
+                    setzt sich aus folgenden Komponenten zusammen:
+                    -http: Kennzeichnet das verwendete Protokoll
+                    - www: Name des Internetrechners (Hostname)
+                    - ensemble-plattfuss: Domain
+                    -de: Top-Level-Domain
+                    -Termine: Verzeichnis/Pfad der html-Datei
+                    -uebersicht.html: Name der html-Datei"
+                </answerDescription>
+                <answers>
+
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "c) Auf Clientseite wird zur Anzeige von Webseiten ein Web-Browser benötigt. Nennen
+                    Sie dem Kunden vier gängige Webbrowser!"
+                </title>
+                <points>
+                    2
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "c) Browser
+                    -Internet Explorer - Mozilla - Chrome
+                    - Netscape Navigator - Opera
+                    - Firefox - Safari"
+                </answerDescription>
+                <answers>
+
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "d) Um Webseiten bereitstellen zu können wird serverseitig ein Web-Server benötigt.
+                    Nennen Sie die beiden marktführenden Webserver und die üblichen Plattformen,
+                    auf denen diese Server eingesetzt werden!"
+                </title>
+                <points>
+                    2
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "d) Web-Server
+                    -Microsoft Internet Information Server (Windows-Plattformen)
+                    -Apache (Linux/Unix- und Windows-Plattformen)"
+                </answerDescription>
+                <answers>
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "e)Der Manager möchte gerne einige Detailinformationen zu verschiedenen Internet-
+                    diensten bekommen. Netzwerktechnisch entsprechen diese Dienste bestimmten
+                    Protokollen und Ports.
+                    Nennen Sie für die folgenden Dienste die in aller Regel benutzen Standardports und
+                    beschreiben Sie den Verwendungszweck der Protokolle.  ea) http ed) pop3
+                    eb) telnet ee) smtp
+                    ec) ftp ef) nntp"
+                </title>
+                <points>
+                    6
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "e) Internetdienste und deren Standardports (6 P.)
+                    ea) http - Protokoll zur Übertragung von webbasierten Inhalten(„Hyptertext transfer protocol“); port 80
+                    eb) telnet - Protokoll zum Einloggen und Starten einer Konsolensitzung auf ent-fernten Rechnern; port 23
+                    ec) ftp - Protokoll zum Übertragen von Dateien (‚file transfer protocoll""); port 21
+                    ed) pop3 - Protokoll zum Abrufen von Mails („post office protocol“); port 110
+                    ee) smtp - Protokoll zum Versenden von Mails („simple mail transfer protocol“); port 25
+                    ef) nntp - Protokoll zum Abrufen von Newsgroups („network news transferprotocol“); port 119"
+                </answerDescription>
+                <answers>
+                </answers>
+            </question>
+        </questions>
+    </scenario>
+
+    <scenario>
+        <fach>
+            PM
+        </fach>
+        <description>
+            Abschluss Prufueng
+        </description>
+        <title>
+            Ein solches Projekt zur Entwicklung eines Internetauftritts muss sorgsam geplant und zwischen allen Mitgliedern eines Teams gut koordiniert werden.
+            1-Problemanalyse. 2- Zielfestlegung. 3-Planung. 4-Durchfürung. 5- Kontrolle.
+        </title>
+        <image>
+            0
+        </image>
+        <points>
+            20
+        </points>
+        <questions>
+            <question>
+                <title>
+                    "a) Ordnen Sie die Projektphasen 1 bis 5 den unten aufgeführten Vorgängen zu:
+                    aa) Visualisierung des Projektverlaufs durch einen Netzplan
+                    ab) Beschreibung der SOLL-Situation
+                    ac) Beschreibung der IST-Situation
+                    ad) Aufgabenverteilung innerhalb des Projektteams
+                    ae) Abnahme durch den Kunden
+                    af) Ermittlung des Personaleinsatzes und des Budgets
+                    ag) Festlegung des Projektablaufs
+                    ah) abschließender SOLL-Ist-Vergleich
+                    ai) Umsetzung der Planungsvorgaben
+                    aj) ständige Terminkontrolle
+                    ak) Beschreibung der Anforderungen
+                    al} Neubewertung des Projektplans im Bedarfsfall"
+                </title>
+                <points>
+                    12
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "aa) Visualisierung des Projektverlaufs durch einen Netzplan 3
+                    ab) Beschreibung der SOLL-Situation 2
+                    ac) Beschreibung der IST-Situation 1
+                    ad) Aufgabenverteilung innerhalb des Projektteams 3
+                    ae) Abnahme durch den Kunden 5
+                    af) Ermittlung des Personaleinsatzes und des Budgets 3
+                    ag) Festlegung des Projektablaufs 3
+                    ah) abschließender SOLL-Ist-Vergleich 5
+                    ai) Umsetzung der Planungsvorgaben 4
+                    aj) ständige Terminkontrolle 4
+                    ak) Beschreibung der Anforderungen 2
+                    al) Anpassung des Projektplans im Bedarfsfall 4"
+                </answerDescription>
+                <answers>
+
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "b) Vor der Übergabe an den Kunden soll das Ergebnis auf vollständige Funktion hin
+                    getestet werden. Beschreiben Sie stichwortartig vier wichtige Vorgehensweisen bei
+                    einem solchen Funktionstest."
+                </title>
+                <points>
+                    8
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "b) Funktionstest
+                    - Test ggf. in der Realumgebung des Kunden durchführen
+                    - Testen aller Funktionen gem. dem zu Beginn erstellten Pflichtenheft
+                    - Dokumentation der einzelnen Prozesse und Dokumentation der jeweiligen Testergebnisse
+                    - ggf. testen im Beisein des Auftraggebers
+                    - Abnahme der Testergebnisse durch den Kunden und Unterzeichnung des Über- gabeprotokolls"
+                </answerDescription>
+                <answers>
+
+                </answers>
+            </question>
+            <question>
+                <title>
+                        "whatever"
+                </title>
+                <points>
+                    2
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "c) Browser
+                    -Internet Explorer - Mozilla - Chrome
+                    - Netscape Navigator - Opera
+                    - Firefox - Safari"
+                </answerDescription>
+                <answers>
+
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "d) Um Webseiten bereitstellen zu können wird serverseitig ein Web-Server benötigt.
+                    Nennen Sie die beiden marktführenden Webserver und die üblichen Plattformen,
+                    auf denen diese Server eingesetzt werden!"
+                </title>
+                <points>
+                    2
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "d) Web-Server
+                    -Microsoft Internet Information Server (Windows-Plattformen)
+                    -Apache (Linux/Unix- und Windows-Plattformen)"
+                </answerDescription>
+                <answers>
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "e) Der Manager möchte gerne einige Detailinformationen zu verschiedenen Internet-
+                    diensten bekommen. Netzwerktechnisch entsprechen diese Dienste bestimmten Protokollen und Ports.
+                    Nennen Sie für die folgenden Dienste die in aller Regel benutzen Standardports und
+                    beschreiben Sie den Verwendungszweck der Protokolle.
+                    ea) http ed) pop3
+                    eb) telnet ee) smtp
+                    ec) ftp ef) nntp"
+                </title>
+                <points>
+                    6
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "e) Internetdienste und deren Standardports (6 P.)
+                    ea) http - Protokoll zur Übertragung von webbasierten Inhalten („Hyptertext transfer protocol“); port 80
+                    eb) telnet - Protokoll zum Einloggen und Starten einer Konsolensitzung auf ent- fernten Rechnern; port 23
+                    ec) ftp - Protokoll zum Übertragen von Dateien (‚file transfer protocoll""); port 21
+                    ed) pop3 - Protokoll zum Abrufen von Mails („post office protocol“); port 110
+                    ee) smtp - Protokoll zum Versenden von Mails („simple mail transfer protocol“); port 25
+                    ef) nntp - Protokoll zum Abrufen von Newsgroups („network news transfer protocol“); port 119"
+                </answerDescription>
+                <answers>
+                </answers>
+            </question>
+        </questions>
+    </scenario>
+
+    <scenario>
+        <fach>
+            ANW
+        </fach>
+        <description>
+            Abschluss Prufueng
+        </description>
+        <title>
+            "Das Kundengespräch ist positiv verlaufen und die Creative-Ad GmbH ist beauftragt
+            worden die Internetpräsenz des Ensembles „Plattfuß“ zu realisieren."
+        </title>
+        <image>
+            0
+        </image>
+        <points>
+            20
+        </points>
+        <questions>
+            <question>
+                <title>
+                    "a) Bei diesem Projekt soll ein besonderes Augenmerk auf die ergonomische Gestaltung
+                    der Webseiten gelegt werden. Untersuchungen haben ergeben, dass Internetnutzer
+                    eindeutige Anforderungen an Webseiten haben. Geben Sie für die folgenden An-
+                    forderungen je ein technisches und/oder stilistisches Gestaltungsmittel oder eine
+                    Methode an, um den folgenden Anforderungen gerecht zu werden, unter Beibehaltung größtmöglicher Flexibilität.
+                    aa) Schnelle Ladezeiten (1 P.)
+                    ab) Übersichtliche Struktur (jederzeit sollte ersichtlich sein, wo sich der Benutzer innerhalb der Hierarchie befindet) (1 P.)
+                    ac) Die Information muss im Vordergrund stehen (1 P.)
+                    ad) Einheitliches Erscheinungsbild (1 P.)
+                    ae) Fehlertoleranz (z. B. sollten nach dem fehlerhaften Ausfüllen eines Formulars nicht alle Informationen erneut eingegeben werden müssen) (1 P.)
+                    af) Im Idealfall, Wiedererkennung des Benutzers (1 P.)
+                    ag) Benutzerabhängiges Informationsangebot (1 P.)
+                    ah) Gute Lesbarkeit (1 P.)"
+                </title>
+                <points>
+                    8
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "a) Gestaltungsmittel für Web-Seiten
+                    aa) Schnelle Ladezeiten (1 P.)
+                    - Verwendung nur weniger bzw. kleiner Bilddateien
+                    - Verwendung größenoptimierter .jpg Dateien
+                    ab) Übersichtliche Struktur (1 P.)
+                    - Anzeige des gegenwärtigen Standortes innerhalb der Hierarchie auf jeder Seite
+                    - Verwendung von Navigationsleisten
+                    ac) Die Information muss im Vordergrund stehen (1 P.)
+                    - Einsatz nur weniger oder gar keiner Animationen
+                    - Klares Seitenlayout
+                    ad) Einheitliches Erscheinungsbild (1 P.)
+                    - Verwendung von „cascading style sheets“ (CSS) zur Vereinheitlichung des Layouts
+                    ae) Fehlertoleranz (1 P.)
+                    - Einsatz von Cookies
+                    af) Wiedererkennung des Benutzers (1 P.)
+                    - Einsatz von Cookies
+                    - Benutzeranmeldung
+                    ag) Benutzerabhängiges Informationsangebot (1 P.)
+                    - Einsatz von Webseiten mit dynamischem, datenbankbasiertem Inhalt
+                    ah) Gute Lesbarkeit (1 P.)
+                    - Kontrastreiche Farbgestaltung
+                    - Klares Schriftbild"
+                </answerDescription>
+                <answers>
+                </answers>
+            </question>
+            <question>
+                <title>
+                    ""Fortsetzung
+                    c) Im Realisierungsfalle des Projektes sollen die Veranstaltungstermine als .pdf-Dateien
+                    zum Herunterladen bereitgestellt werden.
+                    ca) Nennen Sie mindestens zwei vorteilhafte Eigenschaften dieses Formates! (2 P.)
+                    cb) Bei der Erstellung von .pdf-Dateien kann überlichweise die Qualität in der
+                    Einheit „dpi” angegeben werden. Erläutern Sie diesen Begriff und stellen Sie die
+                    praktischen Einsatzbereiche der Qualitätsstufen 72 dpi und 300 dpi gegenüber!
+                    (2P)"
+                    "
+                </title>
+                <points>
+                    4
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "c) .pdf-Dateien
+                    ca) Vorteile von .pdf-Dateien: (2 P.)
+                    * In der Regel kleine Dateien.
+                    « Inhalt der Dokumentation kann nicht verändert werden.
+                    « Als Quasi-Standard können .pdf-Dateien unter fast allen Betriebssystemen
+                    angezeigt werden.
+                    « Die benötigte Software zur Anzeige von .pdf-Dateien ist kostenlos.
+                    « Die Bildschirmanzeige der Dokumentation entspricht dem Druckbild.
+                    cb
+                    — Die Einheit „dpi“ gibt die Punktedichte in „dots per inch“ (=""Punkte pro Zoll"";
+                    1 Zoll = 2,54 cm) an. Je höher die gewählte dpi Angabe ist, desto höher ist die
+                    Qualität, allerdings auch die Dateigröße. Die typische Dichteangabe von 72 dpi
+                    wird üblicherweise als hinreichend für die Bildschirmdarstellung (z. B. im Web)
+                    angesehen. Im Falle einer Druckausgabe ist die Qualität aber objektiv unzureichend,
+                    Da fast alle modernen Drucker hardwareseitig in der Lage sind mindestens 300
+                    Punkte pro Zoll auf das Papier zu bringen, wird eine Auflösung von 300 dpi
+                    typischerweise zur Druckausgabe verwendet, da es allgemein als guter
+                    Kompromiss zwischen Dateigröße einerseits und Druckqualität andererseits
+                    angesehen wird. (2 P.)"
+                </answerDescription>
+                <answers>
+                </answers>
+            </question>
+        </questions>
+    </scenario>
+
+    <scenario>
+        <fach>
+            WUG
+        </fach>
+        <description>
+            Abschluss Prufueng
+        </description>
+        <title>
+            "Ordnen Sie vier der genannten Vertragsarten den Sachverhalten zu."
+        </title>
+        <image>
+            0
+        </image>
+        <points>
+            8
+        </points>
+        <questions>
+            <question>
+                <title>
+                    "Vertragsarten
+                    1. Darlehnsvertrag
+                    2. Dienstvertrag
+                    3. Kaufvertrag
+                    4. Leihvertrag
+                    5. Mietvertrag
+                    6. Pachtvertrag
+                    7. Werkvertrag
+                    Sachverhalte
+                    -Herr Meier von der IT-Solutions GmbH stellt sein Fahrzeug auf einem gebührenpflichtigen Parkplatz ab, um einen Kunden zu besuchen.
+                    -Die Hausfrau Erwine Müller borgt sich von ihrer Nachbarin sechs Eier, um einen Kuchen zu backen. Am nächsten Tag, nach ihrem Einkauf, gibt sie der Nachbarin sechs Eier zurück.
+                    -An einem werkseigenen Fahrzeug des Fuhrparks lassen Sie die fällige Hauptuntersuchung durchführen.
+                    -Im Großraumbüro der Verwaltung wird eine neu erworbene Klimaanlage von einer Spezialfirma installiert."
+                </title>
+                <points>
+                    4
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "Lösung: 5, 1,2,7      Es handelt sich bei der vorstehenden Aufgabe um eine typische
+                    Aufgabe zum Thema Vertragsarten, wie sie in der WiSo-Prüfung
+                    auf Sie zukommen kann. Bei dem Parkplatz handelt es sich um
+                    einen Mietvertrag (Pachtvertrag ist mit ""Fruchtgenuss""!), das mit
+                    den Eiern ist kein Leihvertrag, sondern ein Darlehensvertrag,
+                    sonst müsste Erwine dieselben Eier zurückgeben, was ja nicht
+                    geht. Beim Werkvertrag wird der Erfolg geschuldet (hier also die
+                    Plakette), beim Dienstvertrag nicht. Die Installation der Klimaanlage
+                    stellt daher einen Werkvertrag dar, nach Abschluss der Installation
+                    ist zu erwarten, dass sie funktioniert."
+                </answerDescription>
+                <answers>
+                </answers>
+            </question>
+        </questions>
+    </scenario>
+
+    <scenario>
+        <fach>
+            WUG
+        </fach>
+        <description>
+            Abschluss Prufueng
+        </description>
+        <title>
+            "Als Mitarbeiter/in in der Einkaufsabteilung der IT Solutions GmbH haben
+            Sie an einen Hersteller für IT-Equipment und Bürozubehör eine
+            detaillierte Anfrage zur Lieferung von 20 Serverschränken gestellt.
+            Nach einer Woche emalten Sie ein ausführliches verbindliches Angebot.
+            Am nächsten Tag bestellen Sie zunächst nur einen Schrank und
+            stellen die Bestellung von 19 weiteren Schränken in Aussicht, wenn
+            die Lieferung Ihren Erwartungen entspricht."
+        </title>
+        <image>
+            0
+        </image>
+        <points>
+            8
+        </points>
+        <questions>
+            <question>
+                <title>
+                    "a) Wann ist ein rechtsgültiger Kaufvertrag zustande gekommen?
+                    1. Nach Eingang der ersten Bestellung beim Lieferanten
+                    2. Bei Lieferung des Serverschranks
+                    3. Nach Eingang des verbindlichen Angebots des Lieferanten aufgrund Ihrer Anfrage
+                    4. Nach endgültiger Bestellung der restlichen 19 Schränke
+                    5. Nach der Prüfung des Schranks auf Tauglichkeit"
+                </title>
+                <points>
+                    4
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "Das detaillierte Angebot des Lieferanten ist der Antrag, und die
+                    erste Bestellung ist die Annahme. Das heißt, in Aufgabenteil a)
+                    ist Aussage 1 richtig. Prüfen Sie jeweils, wann die verbindliche
+                    Aussage gemacht wird.
+                    "
+                </answerDescription>
+                <answers>
+
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "b) Um welche Art des Kaufvertrags handelt es sich?
+                    1. Kauf nach Probe
+                    2. Kauf auf Probe
+                    3. Kauf auf Abruf
+                    4. Kauf zur Probe"
+                </title>
+                <points>
+                    4
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "Die richtige Antwort auf b) ist der ""Kauf zur Probe"" (4). Es wird
+                    zunächst eine kleine Menge bestellt, um sie probieren zu können.
+                    Beim ""Kauf nach Probe"" lässt man sich zunächst ein Muster
+                    zuschicken und entscheidet dann erst über die Bestellung. Der
+                    ""Kauf auf Probe"" beinhaltet ein Rückgaberecht bei Nichtgefallen.
+                    Beim ""Kauf auf Abruf"" wird die gesamte Menge bestellt, aber
+                    erst nach Bedarf abgerufen."
+                </answerDescription>
+                <answers>
+
+                </answers>
+            </question>
+        </questions>
+    </scenario>
+
+    <scenario>
+        <fach>
+            WUG
+        </fach>
+        <description>
+            Zwischen Prufueng herbst 2016
+        </description>
+        <title>
+            "Sie sind Auszuhildende/Auszubildender der Schwan KG, einem Systemhaus.
+            Die Schwan KG hat sich unter anderem auf Prozessoptimierungspezialisiert"
+        </title>
+        <image>
+            0
+        </image>
+        <points>
+            8
+        </points>
+        <questions>
+            <question>
+                <title>
+                    "1.1 Die Schwan KG hat sich auf die Installation, Inbetriebnahme und Wartung von Netzwerken spezialisiert.
+                    Welche der folgenden Aufgaben werden dem Leistungsprozess zugeordnet?
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    1,3
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    [1] Erstellung eines Angebots
+                    [3] Verlegung von Leitungen beim Kunden
+                    "
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            [1] Erstellung eines Angebots
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [2] Ersatzkauf von Werkzeug
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [3] Verlegung von Leitungen beim Kunden
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [4] Einstellung einer IT-Fachkraft auf eine unbefristete Stelle
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [5] Ermittlung des Quartalsgewinns"
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "1.2
+                    Die Schwan KG bezieht Waren und Materialien von vielen Lieferanten.
+                    Welche der folgenden Aussagen trifft auf die Schwan KG und deren Lieferantenzu?"
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    5
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    [5] Die Schwan KG muss gegenuber ihren Kunden auch für Mängel einstehen, die den Lieferanten geschuldet sind."
+                    "
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            [1] Die Lieferanten haben keinen Einfluss auf die Leistungserstellungder Schwan KG.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [2] Der Gewinn der Schwan KG wird durch Rabatie und Skonti ihrer Lieferanten geschmälert
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [3] Jeder Anbieter eines Marktes muss die Schwan KG beliefern, wenn dies für die Leistungserstellungder Schwan KG erforderlich ist.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [4] In einem homogenen polypolistischen Markt besitzen die Lieferanten eine starke Position und können gegenuber der Schwan KG hohe Preise
+                            durchsetzen.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [5] Die Schwan KG muss gegenuber ihren Kunden auch für Mängel einstehen, die den Lieferanten geschuldet sind."
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "1.3
+                    Die Schwan KG besitzt eine Stablinienorganisation.
+                    Welche der folgenden Aussagen trifft auf eine Stabsstelle zu?   Eine Stabsstelle...
+                    "
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    3
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    [3] unterstützt die Arbeit von Leitungsstellen.
+                    "
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            [1] besitzt eine disziplinarischeWeisungsbefugnisgegenüber anderen Siellen.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [2] führt die in der Geschäftsleitungvorbereiteten Entscheidungen aus.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [3] unterstützt die Arbeit von Leitungsstellen.
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [4] ist das Bindeglied zwischen Aufbauorganisation und Ablauforganisation.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [5] leitet die Stelien einer Fachabteilung.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "1.4
+                    Die Schwan KG erwägt, ihre Organisation an Geschäftsprozessenzu orientieren.
+                    Welches der folgenden Ziele wird mit einer Geschäftsprozessorientierung angestrebt?
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    2
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    [2] Steigerungder Kundenzufriedenheit
+                    "
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            [1] Spezialisierung der Mitarbeiter auf ein Fachgebiet
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [2] Steigerungder Kundenzufriedenheit
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [3] Aufrechterhaltung der in einem Einliniensystem angelegten eindeutigen Kommunikationswege
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [4] Stärkung einer Organisation mit verrichtungsbezogenenAbteilungen
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [5] Vermeidung von Matrixorganisationen mit überkreuzenden Zuständigkeiten"
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                </answers>
+            </question>
+            <question>
+                <title>
+                    ""1.5
+                    Die Schwan KG betreibt auch einen Großhandel für Installationsmaterial und erwägt die Auflösung des Zentrallagers zugunsten einer dezentralen
+                    Lagerhaltung.
+                    Welche der folgenden Aussagen trifft auf eine dezentrale Warenlagerung zu?
+                    Eine dezentrale Warenlagerung ...
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    5
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    [5] ermöglicht eine schnellere Belieferung von Kunden."
+                    "
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            [1] verringert die Lagerverwaltung.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [2] ermöglicht die Verringerung des Lagerbestands.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [3] führt generell zu einer Verringerung der Umschlagshäufigkeit
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [4] führt zu einer Reduzierung der Lagerkosten.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [5] ermöglicht eine schnellere Belieferung von Kunden."
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "1.6
+                    Die Schwan KG führt im Marketing verschiedene Maßnahmen durch.
+                    Bei welcher der folgenden Aktionen handelt es sich um eine Marketingmaßnahme?
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    3
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    [3] Festlegen von Listenpreisen und Rabatten
+                    "
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            [1] Ermittlung der Arbeitsstunden eines Projekts und Berechnung der Lohnkosten
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [2] Zusammenbaueines PC aus Einzelteilen und dessen Lieferung
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [3] Festlegen von Listenpreisen und Rabatten
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [4] Restrukturierung der Aufbauorganisation und Ausschreibung neuer Stellen
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [5] Einlagerung von Ware und Übernahme der Warendaten in das Warenwirtschaftssystem"
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "1.7
+                    Die Schwan KG verfolgt mit mehreren Maßnahmen quantitative und qualitative Marketingziele.
+                    Bei welchem der folgenden Marketingziele handelt es sich um ein quantitatives Marketingziel.
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    3
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    [3] Ausbau des Marktanteils
+                    "
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            [1] Verbesserung der Lieferzuverlässigkeit
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [2] Erhöhung der Kundenzufriedenheit
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [3] Ausbau des Marktanteils
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [4] Verbesserung des Images durch Corporate Identity
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [5] Stärkung der Kundenbindung"
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "1.8
+                    Die Schwan KG will die Zufriedenheit ihrer Kunden erhöhen.
+                    Welche der folgenden Aussagen zur Kundenzufriedenheit ist zutreffend?
+                    Die Kundenzufriedenheit ...
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    2
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    [2] ist dann sehr gut, wenn die Schwan Ka über die Erfüllung der Basisleistungen hinaus Leistungen bietet, die den Kunden positiv überraschen.
+                    "
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            [1] kann durch Umfragen nicht ermittelt werden.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [2] ist dann sehr gut, wenn die Schwan Ka über die Erfüllung der Basisleistungen hinaus Leistungen bietet, die den Kunden positiv überraschen.
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [3] kann von der Schwan KG nicht beeinflusst werden, da diese von externen Faktoren abhängt.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [4] ist maximal, wenn die Schwan KG die Grunderwartungen der Kunden zu 100 Prozent erfüllt, z. B.termingerechte Lieferung in der bestellten
+                            Qualität.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [5] kann dadurch gesteigert werden, indem die Schwan KG alle Leistungen streicht, die belanglos sind, weil es den Kunden gleichgültig ist, ob sie
+                            diese erhalten oder nicht."
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                </answers>
+            </question>
+        </questions>
+    </scenario>
+
+    <scenario>
+        <fach>
+            WUG
+        </fach>
+        <description>
+            Zwischen Prufueng herbst 2016
+        </description>
+        <title>
+            "In der Schwan KG liegen über einen regionalen Markt folgende Daten vor,
+            Marktanteile für NAS-Systeme 2005 - 2015 (Angaben in Prozent)
+            2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015
+            Schwan KG 24 26 20 25 31 41 37 30 35 28 21
+            Bartel GmbH 26 27 31 32 33 35 37 39 38 40 42"
+        </title>
+        <image>
+            7
+        </image>
+        <points>
+            4
+        </points>
+        <questions>
+            <question>
+                <title>
+                    "1.9
+                    Sie sollen die in der Statistik erfasste Entwicklung der Marktanteile von 2005 bis 2015 in einer Geschäftsgrafik darstellen.
+                    Welche der folgenden Darstellungsformen ist dazu am besten geeignet?
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    [1] Liniendiagramm
+                    "
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            [1] Liniendiagramm
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [2] Balkendiagramm
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [3] Kreisdiagramm
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [4] Gestapeltes Säulendiagramm
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [5] Netzdiagramm"
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "1.10
+                    Sie sollen die in der Statistik erfassten Daten interpretieren.
+                    Welche der folgenden Aussagen kann aus der Statistik abgeleitet werden?
+                    Die Schwan KG ... "
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    4
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    [4] konnte im Jahr 2015 genau 50 % des Marktanteils der Bartel GmbH erzielen,
+                    "
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            [1] erzielte In mehreren Jahren einen größeren Marktanteil als die Bartel GmbH.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [2] konnte ihren Marktanteil kontinuierlich ausbauen.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [3] verzeichnete von 2013 auf 2014 einen Umsatzrückgangvon 6 %.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [4] konnte im Jahr 2015 genau 50 % des Marktanteils der Bartel GmbH erzielen,
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [5] konnte trotz sinkender Marktanteile in einem wachsenden Markt ihren Umsatz stabil halten.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                </answers>
+            </question>
+            <question>
+                <title>
+                    ""1.11
+                    Sie sollen vor der Geschäftsleitung die Ergebnisse einer Marktbeobachtung präsentieren
+                    Ordnen Sie die folgenden vorbereitenden Schritte der jeweiligen Maßnahme zu.
+                    Vorbereitende Schritte
+                    [1] Persönlichen Auftritt situationsspezifisch optimieren
+                    [2] Zielgruppe analysieren und Ziele der Präsentation abstimmen
+                    [3] lnformationsinhalte festlegen und in Reihenfolge bringen
+                    [4] Organisatorischeund medientechnische Vorbereitungen treffen
+                    [5] Informationsinhalte visualisieren und Präsentationsfolien gestalten
+                    Maßnahmen
+                    a) Die Erwartungen der Geschäftsleitung vorrangig berücksichtigen
+                    b) Nur die drei wichtigsten Ergebnisse darstellen
+                    c) Zahlenmaterial übersichtlich in Diagrammen abbilden
+                    d) Präsentationsraum reservieren und Medien bereitstellen
+                    e) Sich gut vorbereiten, um möglichst überzeugend zu wirken"
+                    "
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    "a) 2,
+                    b) 3,
+                    c) 5,
+                    d) 4,
+                    e) 1."
+                    "
+                </answerDescription>
+                <answers>
+
+                </answers>
+            </question>
+            <question>
+                <title>
+                    "1.12
+                    Sie sollen in einer Sitzung ein Ergebnisprotokoll führen
+                    Welche der folgenden Angaben ist Inhalt eines Ergebnisprotokolls?
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    5
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    [5] Beschlüsse mit Abstimmungsergebnissen"
+                    "
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            [1] Statistik der Wortmeldungen
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [2] Alle Teilnehmerbeiträgein indirekter Rede
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [3] Mindmap aller geäußerten Aspekte
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [4] Detaillierte Schilderung des Ablaufs
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [5] Beschlüsse mit Abstimmungsergebnissen
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                </answers>
+            </question>
+        </questions>
+    </scenario>
+
+    <scenario>
+        <fach>
+            WUG
+        </fach>
+        <description>
+            Zwischen Prufueng herbst 2016
+        </description>
+        <title>
+            "1.13
+            Die Schwan KG nutzt zur Planung und Kontrolle des zeitlichen Ablaufs von Projekten die Netzplantechnik.
+            Beispiel:
+            "
+        </title>
+        <image>
+            8
+        </image>
+        <points>
+            4
+        </points>
+        <questions>
+            <question>
+                <title>
+                    "Welche der folgenden Aussagen zur Netzplantechnik ist zutreffend?
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    3
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    [3] Der freie Puffer (FP} eines Vorgangs wird ermittelt, indem der früheste Endzeitpunkt dieses Vorgangs (FEZ) vom frühesten Anfangszeitpunkt des
+                    Nachfolgers (FAZ) subtrahiert wird.
+                    "
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            [1] Der Gesamtpuffer (GP) eines Projekts ist die Differenz aus frühestem Anfangszeitpunkt (FAZ) des ersten Vorgangs und des frühesten Endzeit-
+                            punkts (FEZ) des letzten Vorgangs.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [2] Ein Projekt darf nicht über den kritischen Pfad geführt werden.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [3] Der freie Puffer (FP} eines Vorgangs wird ermittelt, indem der früheste Endzeitpunkt dieses Vorgangs (FEZ) vom frühesten Anfangszeitpunkt des
+                            Nachfolgers (FAZ) subtrahiert wird.
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [4] Der Endtermin eines Projekts wird durch Rückwartsrechnungermittelt.
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [5] Wird die Dauer eines Vorgangs (z. B Vorgang F) geändert, müssen die Zeitpuffer (GP und FP) der Vorgänger (z. B. Vorgänge A bis E) neu berech-
+                            net werden."
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                </answers>
+            </question>
+        </questions>
+    </scenario>
+
+    <scenario>
+        <fach>
+            WUG
+        </fach>
+        <description>
+            Zwischen Prufueng herbst 2016
+        </description>
+        <title>
+            "Sie sind Auszubildende/Auszubildender der IT-SoftServ GmbH, einem Systemhaus.
+            Die iT-SoftServ GmbH wurde von der Werk AG mit der Restrukturierung der Informations- und Telekommunikationstechnik beauftragt.
+            "
+        </title>
+        <image>
+            8
+        </image>
+        <points>
+            4
+        </points>
+        <questions>
+            <question>
+                <title>
+                    2.1
+                    Die IT-SoftServ GmbH berät ihre Kunden auch zu Betriebssystemen.
+                    Welche der folgenden Aussagen treffen auf die nachstehenden Betriebssysteme zu?
+                    Hinweis:
+                    Aussagen können ggf. auf mehrere Betriebssysteme zutreffen
+                    Aussagen:
+                    [1] Enthält einen Linux-Kernel. ist jedoch keine klassische Linux-Distribution
+                    [2] Wurde für Geräte der Firma Apple entwickeit
+                    [3] War ursprünglich allein für die Benutzung von Web-Anwendungen ausgelegt, unterstützt nun aber auch Offline-Anwendungen
+                    [4] Wird in mehreren Distributionen angeboten. die teilweise kostenlos verfügbar sind
+                    [5] War im Jahr 2015 bei PC-Käufen in Deutschland das am häufigsten vorinstallierte Betriebssystem
+                    [6] Wurde speziell für Smartphones entwickelt
+                    [7] Wird in speziellen Versionen auch auf Servern eingesetzt
+                    Betriebssysteme
+                    a) MS Windows
+                    b) Linux
+                    c) Android
+                    d) C5 X (Mac 08)
+                    e) Google Chrome 05
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    0
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    a) [5:7]
+                    b) [4:7]
+                    c) [1:6]
+                    d) [2:7]
+                    e) [1:3]
+                    "
+                </answerDescription>
+                <answers>
+                </answers>
+            </question>
+
+            <question>
+                <title>
+                    2.2 In einem Großraumbüro der Werk AG mit zehn PC-Arbeitsplätzen soll das Druckvolumen statt wie bisher mit zwei nun mit einem entsprechend
+                    leistungsstarken Netzwerkdrucker bewältigt werden.
+                    Welchen der folgenden Vorteile bringt diese Neuorganisation?
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    5
+                </currectAnswer>
+                <answerDescription>
+                    "
+                    [5] Geringerer Energieverbrauch bei gleichem Druckvolumen
+                    "
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            [1] Höhere Ausfalisicherheit durch Redundanz
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [2] Halbierung der Druckkosten, da nun weniger gedruckt wird
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [3] Halbierung des Papierverbrauchs bei gleichem Druckvolumen
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [4] Halbierung der Netzwerkiast bei gleichem Druckvolumen
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            [5] Geringerer Energieverbrauch bei gleichem Druckvolumen
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                </answers>
+            </question>
+        </questions>
+    </scenario>
+
+    <scenario>
+        <fach>
+            ANW
+        </fach>
+        <description>
+            Zwischen Prufueng herbst 2016 - uml
+        </description>
+        <title>
+            ""
+        </title>
+        <image>
+            0
+        </image>
+        <points>
+            1
+        </points>
+        <questions>
+            <question>
+                <title>
+                    "Welche Eigenschaften können Attribute einer Klasse in UML aufweisen?"
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    1,2,3
+                </currectAnswer>
+                <answerDescription>
+
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            "{optional}: Nullwerte sind erlaubt"
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            "
+                            /attributname: abgeleitetes Attribut
+                            "
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            "
+                            |attributname: Sichtbarkeiten werden ignoriert
+                            "
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                    </answer>
+                    <answer>
+                        <title>
+                            "
+                            {final}: Attributwert darf nicht verändert werden
+                            "
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                    </answer>
+                </answers>
+            </question>
+
+            <question>
+                <title>
+                    "
+                    Wie sollte folgender Sachverhalt abgebildet werden:
+                    Saisonarbeiter können in einer oder mehreren Saisonen beschäftigt werden, ihr Arbeitsbeginn und -ende wird jeweils abgespeichert.
+                    "
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    1
+                </currectAnswer>
+                <answerDescription>
+
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            "
+                            Mittels Assoziationsklasse
+                            "
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                        <image>
+                            a1
+                        </image>
+                    </answer>
+                    <answer>
+                        <title>
+                            "
+                            Mittels Klassenattributen
+                            "
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                        <image>
+                            a2
+                        </image>
+                    </answer>
+                    <answer>
+                        <title>
+                            "
+                            Mittels binärer Beziehung
+                            "
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                        <image>
+                            a3
+                        </image>
+                    </answer>
+                    <answer>
+                        <title>
+                            "
+                            Mittels ternärer Beziehung
+                            "
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                        <image>
+                            a4
+                        </image>
+                    </answer>
+                </answers>
+            </question>
+
+            <question>
+                <title>
+                    "
+                    Gegeben ist folgender Ausschnitt eines Klassendiagramms. Welche der folgenden Objektdiagramme passen zu diesem Klassendiagramm?
+                    "
+                </title>
+                <points>
+                    1
+                </points>
+                <isMultipleChoice>
+                    1
+                </isMultipleChoice>
+                <currectAnswer>
+                    2,3,4,5
+                </currectAnswer>
+                <answerDescription>
+
+                </answerDescription>
+                <answers>
+                    <answer>
+                        <title>
+                            "
+                            "
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                        <image>
+                            a5
+                        </image>
+                    </answer>
+                    <answer>
+                        <title>
+                            "
+                            "
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                        <image>
+                            a6
+                        </image>
+                    </answer>
+                    <answer>
+                        <title>
+                            "
+                            "
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                        <image>
+                            a7
+                        </image>
+                    </answer>
+                    <answer>
+                        <title>
+                            "
+                            "
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                        <image>
+                            a8
+                        </image>
+                    </answer>
+                    <answer>
+                        <title>
+                            "
+                            "
+                        </title>
+                        <isCorrect>
+                            1
+                        </isCorrect>
+                        <image>
+                            a9
+                        </image>
+                    </answer>
+                    <answer>
+                        <title>
+                            "
+                            "
+                        </title>
+                        <isCorrect>
+                            0
+                        </isCorrect>
+                        <image>
+                            a10
+                        </image>
+                    </answer>
+                </answers>
+            </question>
+
+        </questions>
+    </scenario>
+
+</scenarios>

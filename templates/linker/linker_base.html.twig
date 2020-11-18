@@ -2,18 +2,22 @@
 
 {% block title %}Linker{% endblock %}
 
-{% block Navigationbar %}
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('home_page') }}">Home</a></li>
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('questions_page') }}">Quiz</a></li>
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('blog_page') }}"> Blog</a></li>
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('shop_page') }}"> Shop</a></li>
+{% block menu_linker %}
     <li class="quiz-Navigation-bar-li"><a class="quiz-a-active" href="{{ path('linker_page') }}"> Linker</a></li>
-{% endblock %}
+{% endblock menu_linker %}
 
 {% block body %}
         <div class="grid-container">
             {% block head_grid %}
             <div class="header-grid">Header
+                {% block menu_search %}
+                    <div class="linker-menu-item">
+                        <form action="{{ path('search') }}" method="post">
+                        <input type="text" id="query" name="query">
+                        <button id="searchButton" type="submit">Search</button>
+                        </form>
+                    </div>
+                {% endblock menu_search %}
             </div>
             {% endblock head_grid %}
 
@@ -45,9 +49,14 @@
                     {% endblock menu_public %}
                     {% block menu_private %}
                         <div class="linker-menu-item">
-                            <a href="{{ path('private_page') }}">private</a>
+                            <a href="{{ path('private_page') }}">Private</a>
                         </div>
                     {% endblock menu_private %}
+                    {% block menu_add_link %}
+                        <div class="linker-menu-item">
+                            <a href="{{ path('add_link_page') }}">Add Link</a>
+                        </div>
+                    {% endblock menu_add_link %}
                         <!--   <div>
                            <div>
                                <span>

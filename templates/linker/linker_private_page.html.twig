@@ -18,6 +18,7 @@
                     <th class="card-items-table-h">Name</th>
                     <th class="card-items-table-h">Url</th>
                     <th class="card-items-table-h">Rate</th>
+                    <th class="card-items-table-h">Refresh</th>
                 </tr>
 
                 {% for l in links %}
@@ -31,14 +32,45 @@
                             {{ l.url }}
                         </td>
                         <td>{{ l.rate|default(0.0) }}</td>
+                        <td><button type="button" onclick="refreshLink({{ l.id }})">refresh</button> <p id="refreshMessage{{ l.id }}"></p></td>
                     </tr>
                 {% endfor %}
             </table>
-
-            <video width="320" height="240" src="https://s207.akwam.download/download/1603287977/5f8eea2978940/Ratched.S01E08.720p.WEBRip.akwam.net.mp4" controls>
-                Your browser does not support the video tag.
-            </video>
-
         </div>
     </div>
 {% endblock main_grid %}
+
+{% block javascripts %}
+    <script>
+        function refreshLink(id) {
+            var xhttp = new XMLHttpRequest();
+            console.log(id);
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+
+                    console.log(this.response);
+                   // var myObj = JSON.parse(this.responseText);
+                   // console.log(myObj);
+                    document.getElementById("refreshMessage".concat('0')).innerHTML = "ok!!";
+                  /*  if (myObj.remainingQuantity == 0){
+                        location.reload();
+                    }
+                    document.getElementById("itemQuantity".concat(id)).innerHTML = myObj.remainingQuantity;
+                */
+                }
+
+            };
+            //xhttp.setRequestHeader("Content-type", "application/json");
+
+            url = "https://akwam.co/movie/2586/s-o-s-survive-or-sacrifice";
+            xhttp.open("GET", url, true);
+            xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+            //xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.setRequestHeader("Content-type", "text/html");
+            xhttp.send();
+
+        }
+
+
+    </script>
+{% endblock %}
