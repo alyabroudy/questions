@@ -46,8 +46,8 @@
                 <td>
                     <div id="answerStatus"></div>
                 </td>
-                <tr>
-                    <td id="answersBox" class="quiz-div-box-answer"></td>
+                <tr id="answersBox" class="quiz-div-box-answer">
+
                 </tr>
                 <tr>
                     <td id="answersDes">
@@ -82,17 +82,17 @@
             let infoCounter = 0;
             let infoLineCounter = 0;
 
+            let scenarios;
+            let quiz;
+            let currentScenario;
+            let currentQuiz;
+
             /**
              * its called on page load
              * fill the page with scenarios and questions
              */
             function prepareScenarios(){
                 //console.log(questionGroup);
-
-                let scenarios = questionGroup.scenarios;
-                let currentScenario = scenarios[scenarioCounter];
-                let quizs = currentScenario.questions
-                let currentQuiz = quizs[quizCounter];
 
                 document.getElementById('controlBox').innerHTML = '';
                 document.getElementById('answersBox').innerHTML = '';
@@ -147,11 +147,6 @@
             }
 
             function fillScenario(){
-                let scenarios = questionGroup.scenarios;
-                let currentScenario = scenarios[scenarioCounter];
-                let quizs = currentScenario.questions
-                let currentQuiz = quizs[quizCounter];
-
                 document.getElementById('scenarioText').innerText = 'Scenario:'.concat(currentScenario.title);
                 document.getElementById('scenarioPoints').innerText = ' #Points:'.concat(currentScenario.points);
                 document.getElementById('answerStatus').innerHTML= '';
@@ -210,8 +205,10 @@
             }
             function selectQuiz(sIndex, quizIndex){
                 console.log(sIndex, quizIndex);
-                quizCounter = quizIndex;
-                scenarioCounter = sIndex;
+                currentScenario = scenarios[sIndex];
+                console.log(currentScenario);
+                quiz = currentScenario.questions;
+                currentQuiz = quiz[quizIndex];
                 return fillScenario();
             }
 
@@ -225,15 +222,27 @@
                 if (quiz.isMultipleChoice){
                     for (i = 0; i < quiz.answers.length; i++){
                         userAnswer = document.getElementById('answer'.concat(i)).checked;
+                        console.log('userAnswer', userAnswer);
                         console.log(userAnswer && quiz.answers[i].isCorrect);
-                        if (userAnswer && quiz.answers[i].isCorrect){
-                            document.getElementById('label'.concat(i)).append('✅');
-                            document.getElementById('label'.concat(i)).style.color= 'Green';
-                        }else if (!userAnswer && !quiz.answers[i].isCorrect) {
-                            //document.getElementById('label'.concat(i)).append('✅');
-                            document.getElementById('label'.concat(i)).style.color= 'Green';
-                        }else {
-                            document.getElementById('label'.concat(i)).style.color= 'Red';
+                        var br = document.createElement('br');
+                        document.getElementById('label'.concat(i)).appendChild(br);
+                        if (quiz.answers[i].isCorrect){
+                            if (userAnswer){
+                                document.getElementById('label'.concat(i)).append('✅');
+                                document.getElementById('label'.concat(i)).style.color= 'Green';
+                            }else{
+                                document.getElementById('label'.concat(i)).append('{should be selected}');
+                                document.getElementById('label'.concat(i)).style.color= 'Red';
+                            }
+                        } else {
+                            if (userAnswer) {
+                                document.getElementById('label'.concat(i)).append('\r{should not be selected!}');
+                                document.getElementById('label'.concat(i)).style.color= 'Red';
+                            }else{
+                                document.getElementById('label'.concat(i)).append('\r{should not be selected}');
+                                document.getElementById('label'.concat(i)).style.color= 'Green';
+                            }
+
                         }
                     }
                 }else {
@@ -327,6 +336,10 @@
              * @param index
              */
             function addAnswer(item, index) {
+                console.log('addAnswer', index.toString());
+                var tr = document.createElement('tr');
+                var td = document.createElement('td');
+
                 var answer = document.createElement("input");
                 answer.setAttribute('type', 'checkbox');
                 answer.setAttribute('class', 'quiz-div-box-answer');
@@ -337,11 +350,11 @@
                 answerLabel.setAttribute('class', 'quiz-title-text');
                 var textAnswer = document.createTextNode((index+1).toString().concat( item.title ));
                 answerLabel.appendChild(textAnswer);
-                document.getElementById("answersBox").appendChild(answer);
-                document.getElementById("answersBox").appendChild(answerLabel);
-                var br = document.createElement('br');
-                document.getElementById("answersBox").appendChild(br);
 
+                td.appendChild(answer);
+                td.appendChild(answerLabel);
+                tr.appendChild(td);
+                document.getElementById("answersBox").appendChild(tr);
                 //document.getElementById("demo").innerHTML += index + ":" + item.title + "<br>";
             }
 
@@ -358,7 +371,12 @@
                         var responseJson = JSON.parse(response);
                         //console.log(JSON.parse(responseJson))
                         questionGroup= JSON.parse(responseJson);
-                       prepareScenarios();
+                        scenarios = questionGroup.scenarios;
+                        currentScenario = scenarios[scenarioCounter];
+                        quiz = currentScenario.questions;
+                        currentQuiz = quiz[quizCounter];
+                        console.log(currentQuiz);
+                        prepareScenarios();
                     }
                 };
                 xhttp.open("POST", "/questions/questionsgroup/"+id, true);
