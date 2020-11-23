@@ -2,13 +2,10 @@
 
 {% block title %}Quiz App!{% endblock %}
 
-{% block Navigationbar %}
 
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('home_page') }}">Home</a></li>
+{% block menu_quiz %}
     <li class="quiz-Navigation-bar-li"><a class="quiz-a-active" href="{{ path('questions_page') }}">Quiz</a></li>
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('blog_page') }}"> Blog</a></li>
-    <li class="quiz-Navigation-bar-li"><a href="{{ path('shop_page') }}"> Shop</a></li>
-{% endblock %}
+{% endblock menu_quiz %}
 
 {% block body %}
     <div class="grid-container">
@@ -25,34 +22,49 @@
 
         <div class="main-grid">
             <h6>{{ questionGroup.name }} QuestionsGroup: ✅</h6>
+            <table class="quiz-list-box">
+                <tr id="scenarioBox" >
+                    <td>
+                        <span id="scenarioText" class="quiz-title-text"></span>
+                        <span id="scenarioPoints" class="quiz-title-text"></span>
+                        <div id="scenarioImage">
+                            <img src="">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="quizBox">
 
-            <div id="scenarioBox" class="quiz-div-box">
-                <span id="scenarioText" class="quiz-title-text"></span>
-                <span id="scenarioPoints" class="quiz-title-text"></span>
-                <div id="scenarioImage">
-                    <img src="">
+                        <span id="quizText" class="quiz-title-text">
 
-                </div>
-            </div>
+                        </span>
 
-            <div id="quizBox" class="quiz-div-box">
+                        <div id="quizImage">
+                        </div>
+                    </td>
+                </tr>
+                <td>
+                    <div id="answerStatus"></div>
+                </td>
+                <tr>
+                    <td id="answersBox" class="quiz-div-box-answer"></td>
+                </tr>
+                <tr>
+                    <td id="answersDes">
+                    </td>
+                </tr>
+                <tr>
+                    <td id="controlBox" class="quiz-div-box">
+                        control box
+                    </td>
+                </tr>
+                <tr class="quiz-info-box">
+                    <td id="infoBox">
+                    </td>
+                </tr>
+            </table>
 
-                <span id="quizText" class="quiz-title-text">
 
-                </span>
-
-                <div id="quizImage">
-                </div>
-            </div>
-
-            <div id="answerStatus"></div>
-            <div id="answersBox" class="quiz-div-box-answer"></div>
-            <div id="answersDes" class="quiz-div-box">
-            </div>
-            <div id="controlBox" class="quiz-div-box">
-
-                control box
-            </div>
 
         </div>
 
@@ -67,6 +79,8 @@
             let scenarioCounter = 0;
             let quizCounter = 0;
             let questionGroup = null;
+            let infoCounter = 0;
+            let infoLineCounter = 0;
 
             /**
              * its called on page load
@@ -79,37 +93,14 @@
                 let currentScenario = scenarios[scenarioCounter];
                 let quizs = currentScenario.questions
                 let currentQuiz = quizs[quizCounter];
+
                 document.getElementById('controlBox').innerHTML = '';
                 document.getElementById('answersBox').innerHTML = '';
 
                // console.log(scenarios[scenarioCounter]);
                 console.log(currentQuiz[quizCounter]);
                 //document.getElementById('scenarioText').innerText = 'Scenario:'.concat(currentScenario.title.replace(/(\r\n|\n|\r)/gm,""));
-                document.getElementById('scenarioText').innerText = 'Scenario:'.concat(currentScenario.title);
-                document.getElementById('scenarioPoints').innerText = ' #Points:'.concat(currentScenario.points);
-                if (currentScenario.image){
-                    document.getElementById('scenarioImage').innerText = currentScenario.image;
-                }
-                //quizs
-                document.getElementById('quizText').innerText = currentQuiz.title;
-                if (currentQuiz.image) {
-                    document.getElementById('quizImage').innerText = currentQuiz.image;
-                }
-                //answers
-                if (currentQuiz.isMultipleChoice){
-                    document.getElementById('answersBox').innerHTML = '';
-                    var answers = currentQuiz.answers;
-                    answers.forEach(addAnswer);
-
-                }else{
-                    var input = document.createElement("input");
-                    input.setAttribute('type', 'text');
-                    input.setAttribute('id', 'answerInputText');
-                    input.setAttribute('placeholder', 'Your Answer');
-                    //var textAnswer = document.createTextNode(index.concat( item.title ));
-                    //answer.appendChild(textAnswer);
-                    document.getElementById("answersBox").appendChild(input);
-                }
+                fillScenario(currentScenario, currentQuiz);
                 //contorl buttons
                 //previous Quiz button
                 if (scenarioCounter > 0 || quizCounter > 0){
@@ -138,9 +129,90 @@
                 document.getElementById("controlBox").appendChild(nextButton);
                 document.getElementById("nextButton").onclick = function(){ return nextQuestion(scenarios,quizs)};
 
+                //info section, quiz numberslist
+             /*   infoList = document.createElement("ul");
+                infoList.setAttribute('id', 'infoList');
+                infoList.setAttribute('class', 'quiz-info-box');
 
+
+                document.getElementById('infoBox').appendChild(infoList);
+*/
+                //scenarios.forEach(addInfo);
+                for (var i = 0; i < scenarios.length; i++)
+                {
+                       addInfo(scenarios[i], i);
+                }
                 //document.getElementById('answersBox').innerText = currentScenario.title;
                 //console.log(questionGroup.scenarios)
+            }
+
+            function fillScenario(){
+                let scenarios = questionGroup.scenarios;
+                let currentScenario = scenarios[scenarioCounter];
+                let quizs = currentScenario.questions
+                let currentQuiz = quizs[quizCounter];
+
+                document.getElementById('scenarioText').innerText = 'Scenario:'.concat(currentScenario.title);
+                document.getElementById('scenarioPoints').innerText = ' #Points:'.concat(currentScenario.points);
+                document.getElementById('answerStatus').innerHTML= '';
+                document.getElementById('answersDes').innerHTML= '';
+
+                if (currentScenario.image){
+                    document.getElementById('scenarioImage').innerText = currentScenario.image;
+                }
+                //quizs
+                document.getElementById('quizText').innerText = currentQuiz.title;
+                if (currentQuiz.image) {
+                    document.getElementById('quizImage').innerText = currentQuiz.image;
+                }
+                //answers
+                if (currentQuiz.isMultipleChoice){
+                    document.getElementById('answersBox').innerHTML = '';
+                    var answers = currentQuiz.answers;
+                    answers.forEach(addAnswer);
+
+                }else{
+                    document.getElementById('answersBox').innerHTML = '';
+                    var input = document.createElement("input");
+                    input.setAttribute('type', 'text');
+                    input.setAttribute('id', 'answerInputText');
+                    input.setAttribute('placeholder', 'Your Answer');
+                    //var textAnswer = document.createTextNode(index.concat( item.title ));
+                    //answer.appendChild(textAnswer);
+                    document.getElementById("answersBox").appendChild(input);
+                }
+            }
+
+            function addInfo(scenario, sIndex) {
+                console.log(infoCounter);
+                for (let j = 0; j < scenario.questions.length; j++)
+                {
+                    if (infoLineCounter > 10){
+                        var element = document.createElement("br");
+                        document.getElementById('infoBox').appendChild(element);
+                        infoLineCounter = 0;
+                    }
+                   // var element = document.createElement("li");
+                    var element = document.createElement("a");
+                    element.setAttribute('class', 'quiz-info-list');
+                    element.setAttribute('id', sIndex.toString().concat('q').concat(j.toString()));
+                    element.onclick = function(){ return selectQuiz(sIndex, j)};
+                    var linkText = document.createTextNode(infoCounter.toString());
+                    element.title = infoCounter.toString();
+                    element.href ='#quizBox';
+                    element.appendChild(linkText);
+                    //document.getElementById('infoList').appendChild(element);
+                    document.getElementById('infoBox').appendChild(element);
+                    infoCounter++;
+                    infoLineCounter++;
+                }
+
+            }
+            function selectQuiz(sIndex, quizIndex){
+                console.log(sIndex, quizIndex);
+                quizCounter = quizIndex;
+                scenarioCounter = sIndex;
+                return fillScenario();
             }
 
             /**

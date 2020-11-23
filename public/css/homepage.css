@@ -12,6 +12,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 
 /* Questions page */
+
 .quiz-groups-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; background-color: white}
 .quiz-groups-li { background-color: #111;}
 .quiz-groups-li a:hover:not(.active) {background-color: #3ecc1a;}
@@ -59,6 +60,26 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 .quiz-button-next{
     float: right;
+}
+
+.quiz-section-box{
+    background-color: #7d8492;
+}
+.quiz-list-box{
+    border: 1px solid black;
+}
+
+table, th, td {
+    border: 3px solid black;
+    padding: 35px;
+}
+.quiz-info-box{
+    list-style-type: none;
+    table-layout:fixed;
+}
+.quiz-info-list {
+    display: inline;
+    margin: 6px;
 }
 
 /* checkbox*/

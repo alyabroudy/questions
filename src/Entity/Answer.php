@@ -37,6 +37,11 @@ class Answer
      */
     private $question;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -93,5 +98,17 @@ class Answer
     public function __toString()
     {
         return 'id='.$this->id. ', title='.$this->title.', description='.$this->description.', isCorrect='.$this->isCorrect;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
     }
 }
